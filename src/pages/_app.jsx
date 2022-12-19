@@ -16,7 +16,8 @@ function MyApp({ Component, pageProps }) {
       <PageProvider>
         <main>
           <head>
-            <title>at00m | Junior Full-stack Developer</title>
+            <title>at00m | Full-stack Developer</title>
+
           </head>
           <CustomCursor />
           <ContextMenu
