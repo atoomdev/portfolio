@@ -10,14 +10,6 @@ import Carousel from "react-multi-carousel";
 
 export default function Home() {
 
-  <head>
-
-<link rel="website icon"  type="jpg"
-href="images/tutu.jpg" />
-
-</head>
-
-
   const { page } = usePage();
   const { data: $skills } = useSWR('/api/skills');
   const skills = $skills?.data;
