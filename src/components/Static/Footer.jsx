@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                 <p className="text-lg text-zinc-400">© 2019 - {new Date().getFullYear()} {clquConfig.name}. All rights reserved.</p>
                 <div className="text-right">
-                    <p className="text-lg text-zinc-400 select-none">Made with <i onClick={() => { setHeartColor(randomColor()) }} className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <a href="" className="text-zinc-400 hover:text-primary hover:dark:text-white">clqu</a></p>
+                    <p className="text-lg text-zinc-400 select-none">Made with <i onClick={() => { setHeartColor(randomColor()) }} className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> Thanks To <a href="" className="text-zinc-400 hover:text-primary hover:dark:text-white">clqu</a></p>
                     <p className="text-sm text-zinc-400 select-none">Powered by <a href="https://softwareer.net/" className="text-zinc-400 hover:text-primary hover:dark:text-white">Softwareer</a></p>
                 </div>
             </div>
