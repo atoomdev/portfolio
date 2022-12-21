@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <PageProvider>
         <main>
           <head>
-            <title>at00m | Full-stack Developer</title>
+            <title>at00m | Full-Stack Developer</title>
 
           </head>
           <CustomCursor />
