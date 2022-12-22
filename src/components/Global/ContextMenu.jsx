@@ -51,7 +51,7 @@ const ContextMenu = ({ content, children }) => {
             window.location.reload();
         },
         viewSource: () => {
-            window.open("https://github.com/clqu/clqu.live", "_blank");
+            window.open("https://github.com/justat00m", "_blank");
         }
     };
 
