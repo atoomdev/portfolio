@@ -18,7 +18,7 @@ export default function About() {
                     <h1 className="text-4xl font-bold">Who Am <span className="relative whitespace-nowrap text-primary">I</span>?</h1>
                     <p className="text-xl mt-1">
                         Hello, Im at00m. I am 16 years old.
-                        I am a 2st year high school student, I have been dealing with software for about 5 years.
+                        I am a 2st year high school student, I have been dealing with software for about 4 years.
                         I started with QBasic, developed QBasic programs and made my biggest improvement with the Discord bot.
                         Since then, software has been more of a dream for me than a hobby, I spent days developing my dream, I tried to improve my software knowledge for at least 4 hours a day in 3 year, finally here I am.
                         Thank you for reading <i className="fa fa-heart" />
