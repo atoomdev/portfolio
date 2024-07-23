@@ -17,8 +17,8 @@ export default function About() {
                 <div>
                     <h1 className="text-4xl font-bold">Who Am <span className="relative whitespace-nowrap text-primary">I</span>?</h1>
                     <p className="text-xl mt-1">
-                        Hello, Im at00m. I am 16 years old.
-                        I am a 2st year high school student, I have been dealing with software for about 4 years.
+                        Hey, Im at00m. I am 16 years old.
+                        I am a 3rd year high school student, I have been dealing with software for about 5 years.
                         I started with QBasic, developed QBasic programs and made my biggest improvement with the Discord bot.
                         Since then, software has been more of a dream for me than a hobby, I spent days developing my dream, I tried to improve my software knowledge for at least 4 hours a day in 3 year, finally here I am.
                         Thank you for reading <i className="fa fa-heart" />
@@ -26,7 +26,7 @@ export default function About() {
                     
                 </div>
                 <div className="relative flex-shrink-0">
-                    <img src="https://r.resimlink.com/fwEOu.png" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
+                    <img src="https://media.licdn.com/dms/image/D4D03AQFAIULc25RGvw/profile-displayphoto-shrink_200_200/0/1721773469956?e=1727308800&v=beta&t=jfX-jKiOmUkssYXhoulhhMHqUL-xh4Oz486ZBfTyyfQ" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
                     <div className="-right-3 top-3 absolute w-full h-full top-0 right-0 border-4 rounded-full lg:rounded-lg border-primary bg-gradient-to-t from-primary" />
                 </div>
             </div>
