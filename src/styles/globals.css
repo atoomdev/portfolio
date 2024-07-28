@@ -78,3 +78,9 @@ body {
     background: radial-gradient(at 0% 150%, #7025fa 0, transparent 50%);
 }
 
+.hover-effect:hover {
+    background-color: #570ae7; /* Hover sırasında arka plan rengini değiştirir */
+    transform: scale(1.05); /* Hover sırasında bloğu biraz büyütür */
+    transition: all 0.3s ease; /* Geçiş efektini yumuşatır */
+  }
+  
