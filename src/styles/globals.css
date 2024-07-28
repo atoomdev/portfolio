@@ -77,9 +77,16 @@ body {
     top: 25%;
     background: radial-gradient(at 0% 150%, #7025fa 0, transparent 50%);
 }
-
-.glow-effect {
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Blokların etrafında mavi bir ışık efekti */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(76, 0, 255, 0.5); } /* Kırmızı */
+    25% { box-shadow: 0 0 15px rgba(0, 60, 255, 0.5); } /* Yeşil */
+    50% { box-shadow: 0 0 15px rgba(0, 0, 255, 0.5); } /* Mavi */
+    75% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); } /* Sarı */
+    100% { box-shadow: 0 0 15px rgba(17, 0, 255, 0.5); } /* Kırmızı */
+  }
+  
+  .glow-effect {
+    animation: glow 5s linear infinite; /* 5 saniyede bir döngü, linear zamanlama fonksiyonu */
     transition: box-shadow 0.3s ease; /* Geçiş efektini yumuşatır */
   }
   
