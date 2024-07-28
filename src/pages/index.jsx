@@ -24,26 +24,25 @@ export default function Home() {
       ㅤ
       </p>
       <p className="mx-auto max-w-4xl font-display text-2xl text-gray-500/50 text-center">
-        A junior full-stack developer
+        Developer - Entrepreneur
       </p>
-
       <div className="w-full lg:w-auto grid grid-cols-1 lg:grid-cols-4 gap-4 mt-24">
-        <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center">
-          <span className="text-primary uppercase">Technologies</span>
-          <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">{skills?.length}15+</p>
-        </div>
-        <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center">
-          <span className="text-primary uppercase">Years of Experience</span>
-          <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">4+</p>
-        </div>
-        <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center">
-          <span className="text-primary uppercase">Completed Projects</span>
-          <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">30+</p>
-        </div>
-        <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center">
-          <span className="text-primary uppercase">Repositories</span>
-          <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">{repositories?.length}+</p>
-        </div>
+  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center hover-effect">
+    <span className="text-primary uppercase">Technologies</span>
+    <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">{skills?.length}13+</p>
+  </div>
+  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center hover-effect">
+    <span className="text-primary uppercase">Years of Experience</span>
+    <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">5+</p>
+  </div>
+  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center hover-effect">
+    <span className="text-primary uppercase">Completed Projects</span>
+    <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">30+</p>
+  </div>
+  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center hover-effect">
+    <span className="text-primary uppercase">Repositories</span>
+    <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">{repositories?.length}+</p>
+  </div>
       </div>
     </div>
     <div className="mx-auto max-w-7xl my-24">
