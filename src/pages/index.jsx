@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Transition, Dialog } from '@headlessui/react'
 import { Fragment } from 'react'
-import clquConfig from '../../clqu.config'
+import clquConfig from '../../config'
 import Button from 'components/Global/Button'
 import Carousel from "react-multi-carousel";
 

@@ -1,4 +1,4 @@
-import clquConfig from "../../clqu.config";
+import clquConfig from "../../config";
 
 export default function Error({ statusCode }) {
     return <div className="flex flex-col items-center justify-center py-56">

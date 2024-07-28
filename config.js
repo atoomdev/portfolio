@@ -2,8 +2,7 @@ module.exports = {
     name: 'at00m',
     version: '3.0.0',
     githubName: 'atoomdev',
-    githubKey: "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",
-    softwareerKey: "ab4d3369239a964d240b4f8f0203920cdb5114b2e1e6d66013a94a8b8de0121d2c86b598",
+    githubKey: "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",
     email: 'atesaltinkaynak@gmail.com',
     errors: {
         404: "This page could not be found.",

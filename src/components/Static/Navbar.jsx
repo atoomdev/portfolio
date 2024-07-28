@@ -5,7 +5,7 @@ import useSWR from "hooks/useSWR";
 import Link from "next/link";
 import { useRouter } from "next/router"
 import { Fragment, useState } from "react";
-import clquConfig from "../../../clqu.config";
+import clquConfig from "../../../config";
 
 export default function Navbar() {
     const router = useRouter();

@@ -1,4 +1,4 @@
-import clquConfig from "../../../clqu.config";
+import clquConfig from "../../../config";
 
 export default async (req, res) => {
     let _ = await (await fetch('https://api.github.com/users/' + clquConfig.githubName + '/repos', {
