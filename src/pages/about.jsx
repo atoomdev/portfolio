@@ -21,7 +21,7 @@ export default function About() {
                         I am a 3rd year high school student, I have been dealing with software for about 5 years.
                         I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
                         I will post my repositories and projects here.
-                        Thank you for reading. <i className="fa-terminal" />
+                        Thank you for reading. <i className="fa fa-terminal" />
                     </p>
                     
                 </div>
