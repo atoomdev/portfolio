@@ -64,3 +64,28 @@ body {
     transition: box-shadow 0.3s ease; /* Geçiş efektini yumuşatır */
   }
   
+  @keyframes gradientBorder {
+    0% { border-image-source: linear-gradient(45deg, #210466, #340c61); }
+    50% { border-image-source: linear-gradient(-45deg, #210466, #340c61); }
+    100% { border-image-source: linear-gradient(45deg, #210466, #340c61); }
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image-slice: 1;
+    animation: gradientBorder 5s linear infinite;
+}
+
+.hover\:shadow-neon-purple:hover {
+    box-shadow: 0 0 10px #340c61, 0 0 20px #340c61, 0 0 30px #340c61, 0 0 40px #340c61;
+}
+
+@keyframes neon {
+    0% { box-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue, 0 0 30px purple, 0 0 40px purple, 0 0 50px purple, 0 0 75px purple; }
+    50% { box-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue, 0 0 40px purple, 0 0 50px purple, 0 0 60px purple, 0 0 90px purple; }
+    100% { box-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue, 0 0 30px purple, 0 0 40px purple, 0 0 50px purple, 0 0 75px purple; }
+}
+
+.neon-effect {
+    animation: neon 1.5s infinite alternate;
+}
