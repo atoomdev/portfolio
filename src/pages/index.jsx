@@ -27,19 +27,19 @@ export default function Home() {
         Developer - Entrepreneur
       </p>
       <div className="w-full lg:w-auto grid grid-cols-1 lg:grid-cols-4 gap-4 mt-24">
-  <div className="rounded-lg border-2 border-white-500/10 border-dotted px-4 py-2 text-center neon-effect">
+  <div className="rounded-lg border-2 border-white-500/10 px-4 py-2 text-center neon-effect">
     <span className="text-primary uppercase">Technologies</span>
     <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">13+</p>
   </div>
-  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center neon-effect">
+  <div className="rounded-lg border-2 border-white-500/10 px-4 py-2 text-center neon-effect">
     <span className="text-primary uppercase">Years of Experience</span>
     <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">5+</p>
   </div>
-  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center neon-effect">
+  <div className="rounded-lg border-2 border-white-500/10 px-4 py-2 text-center neon-effect">
     <span className="text-primary uppercase">Completed Projects</span>
     <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">30+</p>
   </div>
-  <div className="rounded-lg border-2 border-gray-500/10 border-dotted px-4 py-2 text-center neon-effect fade-in">
+  <div className="rounded-lg border-2 border-white-500/10 px-4 py-2 text-center neon-effect">
     <span className="text-primary uppercase">Repositories</span>
     <p className="text-gray-500 dark:text-gray-300 font-semibold text-xl">{repositories?.length}+</p>
   </div>
