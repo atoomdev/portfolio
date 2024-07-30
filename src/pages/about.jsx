@@ -23,7 +23,18 @@ export default function About() {
                         I will post my repositories and projects here.
                         Thank you for reading. <i className="fa fa-terminal" />
                     </p>
-                    
+                    <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
+                    <Button className="mt-6 mb-12 flex items-center gap-2">
+                     <i className="fa-instagram" />
+                     Instagram
+                    </Button>
+                    </a>
+                    <a href={`https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/`} target="_blank" rel="noreferrer">
+                    <Button className="mt-6 mb-12 flex items-center gap-2">
+                     <i className="fa fa-linkedin" />
+                     LinkedIn
+                    </Button>
+                    </a>
                 </div>
                 <div className="relative flex-shrink-0">
                     <img src="https://avatars.githubusercontent.com/u/79448212?v=4" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
