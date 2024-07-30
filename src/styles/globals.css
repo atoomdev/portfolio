@@ -70,12 +70,12 @@ body {
 }
 
 .layout-blue {
-    background: radial-gradient(at 150% 0%, #3325fa 0, transparent 50%);
+    background: radial-gradient(at 150% 0%, #7025fa 0, transparent 50%);
 }
 
 .layout-purple {
     top: 25%;
-    background: radial-gradient(at 0% 150%, #7025fa 0, transparent 50%);
+    background: radial-gradient(at 0% 150%, #003cff 0, transparent 50%);
 }
 @keyframes glow {
     0% { box-shadow: 0 0 15px rgb(0, 38, 255); } /* Kırmızı */
