@@ -78,7 +78,7 @@ body {
     background: radial-gradient(at 0% 150%, #7025fa 0, transparent 50%);
 }
 @keyframes glow {
-    0% { box-shadow: 0 0 15px rgb(0, 183, 255); } /* Kırmızı */
+    0% { box-shadow: 0 0 15px rgb(0, 38, 255); } /* Kırmızı */
     25% { box-shadow: 0 0 15px rgb(111, 0, 255); } /* Yeşil */
     50% { box-shadow: 0 0 15px rgb(0, 0, 255); } /* Mavi */
     75% { box-shadow: 0 0 15px rgba(153, 0, 255, 0.747); } /* Sarı */
