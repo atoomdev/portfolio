@@ -19,9 +19,9 @@ export default function About() {
                     <p className="text-xl mt-1">
                         Hey, Im at00m. I am 16 years old.
                         I am a 3rd year high school student, I have been dealing with software for about 5 years.
-                        I started with QBasic, developed QBasic programs and made my biggest improvement with the Discord bot.
-                        Since then, software has been more of a dream for me than a hobby, I spent days developing my dream, I tried to improve my software knowledge for at least 4 hours a day in 3 year, finally here I am.
-                        Thank you for reading <i className="fa fa-heart" />
+                        I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
+                        I will post my repositories and projects here.
+                        Thank you for reading. <i className="fa-terminal" />
                     </p>
                     
                 </div>
