@@ -17,7 +17,7 @@ export default function About() {
                 <div>
                     <h1 className="text-4xl font-bold">Who Am <span className="relative whitespace-nowrap text-primary">I</span>?</h1>
                     <p className="text-xl mt-1">
-                        Hey, Im at00m. I am 16 years old.
+                        Hey, I'm at00m. I am 16 years old.
                         I am a 3rd year high school student, I have been dealing with software for about 5 years.
                         I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
                         I will post my repositories and projects here.
