@@ -90,18 +90,6 @@ body {
     animation: neon 1.5s infinite alternate;
 }
 
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
+.text-light-ai {
+    color: #00ff2a; /* İstediğiniz daha açık bir renk kodu */
 }
