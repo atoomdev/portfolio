@@ -21,7 +21,7 @@ export default function About() {
                             Hey, I'm at00m. I am 16 years old.
                             I am a 3rd year high school student, entrepreneur, developer, hybrid athlete and investor. I have been dealing with software for about 5 years.
                             I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
-                            I will post my repositories and projects here.
+                            I will post my repositories and projects here on my portfolio.
                             Thank you for reading. <i className="fa fa-terminal" />
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
