@@ -24,7 +24,7 @@ export default function Footer() {
                 <p className="text-lg text-zinc-400">© 2019 - {new Date().getFullYear()} {clquConfig.name}. All rights reserved.</p>
                 <div className="text-right">
                     <p className="text-lg text-zinc-400 select-none">Made with <i onClick={() => { setHeartColor(randomColor()) }} className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> Thanks To <a href="https://github.com/clqu" className="text-zinc-400 hover:text-primary hover:dark:text-white">clqu</a></p>
-                    <p className="text-sm text-zinc-400 select-none">Powered by <a href="https://www.milonai.xyz" target= "_blank" className="text-zinc-400 hover:text-primary hover:dark:text-white">Milon</a></p>
+                    <p className="text-sm text-zinc-400 select-none">Powered by <a href="https://sapienties.com" target= "_blank" className="text-zinc-400 hover:text-primary hover:dark:text-white">Light AI</a></p>
                 </div>
             </div>
         </div>
