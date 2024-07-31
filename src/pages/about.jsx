@@ -39,7 +39,7 @@ export default function About() {
                             </a>
                             <a href={`https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/`} target="_blank" rel="noreferrer">
                                 <Button className="flex items-center gap-2">
-                                    <i className="fa-brands fa-x" />
+                                    <i className="fa-brands fa-twitter" />
                                     X
                                 </Button>
                             </a>
