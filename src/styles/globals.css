@@ -81,7 +81,6 @@ body {
 }
 
 @keyframes neon {
-    0% { box-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue, 0 0 30px purple, 0 0 40px purple, 0 0 50px purple, 0 0 75px purple; }
     50% { box-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue, 0 0 40px purple, 0 0 50px purple, 0 0 60px purple, 0 0 90px purple; }
 }
 
