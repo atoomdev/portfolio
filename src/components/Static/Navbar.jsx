@@ -130,8 +130,8 @@ export default function Navbar() {
                     </div>
 
                     <div className="mt-8 space-y-2">
-                    <div className="flex items-center gap-2">
-                    <p className="text-xs font-medium uppercase text-black/50 dark:text-white/10">Socials</p>
+                        <div className="flex items-center gap-2">
+                            <p className="text-xs font-medium uppercase text-black/50 dark:text-white/10">Socials</p>
                             <div className="w-full h-0.5 bg-black/50 dark:bg-white/10" />
                         </div>
                         <div className="flex items-center gap-2">
@@ -140,25 +140,27 @@ export default function Navbar() {
                                     <i className={`fab fa-${social.name} text-2xl text-zinc-400 hover:text-black hover:dark:text-white transition-all duration-200 w-12 h-12 flex justify-center items-center bg-gray-500/5 rounded-lg hover:bg-gray-500/10`} />
                                 </a>
                             })}
-                            <Link href="/contact">
-                                <a
-                                    onClick={() => setIsOpen(false)}
-                                    className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
-                                >
-                                    <i className="fas fa-envelope text-2xl" />
-                                    <p>Contact</p>
-                                </a>
-                            </Link>
-                            <Link href="https://instagram.com/atesaltnk">
-                                <a
-                                    onClick={() => setIsOpen(false)}
-                                    className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
-                                >
-                                    <i className="fas fa-envelope text-2xl" />
-                                    <p>Instagram</p>
-                                </a>
-                            </Link>
                         </div>
+                    </div>
+                    <div className="mt-8 space-y-2">
+                        <Link href="https://instagram.com/atesaltnk">
+                            <a
+                                onClick={() => setIsOpen(false)}
+                                className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
+                            >
+                                <i className="fas fa-envelope text-2xl" />
+                                <p>Instagram</p>
+                            </a>
+                        </Link>
+                        <Link href="/contact">
+                            <a
+                                onClick={() => setIsOpen(false)}
+                                className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
+                            >
+                                <i className="fas fa-envelope text-2xl" />
+                                <p>Contact</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </Transition.Child>
