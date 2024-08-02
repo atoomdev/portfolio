@@ -148,7 +148,7 @@ export default function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
                             >
-                                <i className="fa fa-instagram" />
+                                <i className="fa-brands fa-instagram" />
                                 <p>Instagram</p>
                             </a>
                         </Link>
