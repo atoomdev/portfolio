@@ -26,7 +26,7 @@ export default function About() {
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
                             <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
+                                <Button className="flex items-center gap-2 bg-purple-500 text-white">
                                     <i className="fa-brands fa-instagram" />
                                     Instagram
                                 </Button>
