@@ -18,7 +18,7 @@ export default function About() {
                     <div>
                         <h1 className="text-4xl font-bold">Who Am <span className="relative whitespace-nowrap text-primary">I</span>?</h1>
                         <p className="text-xl mt-1">
-                            Hey, I'm at00m. I am 16 years old.
+                            Hey, I'm Ates. I am 16 years old.
                             I am a 3rd year high school student, entrepreneur, developer, hybrid athlete and investor. I have been dealing with software for about 5 years.
                             I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
                             I will post my repositories and projects here on my portfolio.
@@ -26,19 +26,19 @@ export default function About() {
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
                             <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2">
+                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
                                     <i className="fa-brands fa-instagram" />
                                     Instagram
                                 </Button>
                             </a>
                             <a href={`https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2">
+                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
                                     <i className="fa-brands fa-linkedin" />
                                     LinkedIn
                                 </Button>
                             </a>
                             <a href={`https://x.com/atesaltnk`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2">
+                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
                                     <i className="fa-brands fa-twitter" />
                                     X
                                 </Button>
