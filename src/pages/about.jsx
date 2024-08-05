@@ -26,19 +26,19 @@ export default function About() {
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
                             <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2 bg-purple-500 text-white">
+                                <Button className="flex items-center gap-2">
                                     <i className="fa-brands fa-instagram" />
                                     Instagram
                                 </Button>
                             </a>
                             <a href={`https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
+                                <Button className="flex items-center gap-2">
                                     <i className="fa-brands fa-linkedin" />
                                     LinkedIn
                                 </Button>
                             </a>
                             <a href={`https://x.com/atesaltnk`} target="_blank" rel="noreferrer">
-                                <Button className="flex items-center gap-2 bg-blue-500 text-white">
+                                <Button className="flex items-center gap-2">
                                     <i className="fa-brands fa-twitter" />
                                     X
                                 </Button>
