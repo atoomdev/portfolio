@@ -15,11 +15,21 @@ export default function About() {
 
     const handleCommand = (e) => {
         e.preventDefault();
-        if (command.toLowerCase() === 'age') {
-            setOutput([...output, { command, response: '16' }]);
-        } else {
-            setOutput([...output, { command, response: 'Command not found' }]);
+        let response = '';
+        switch (command.toLowerCase()) {
+            case 'age':
+                response = '16';
+                break;
+            case 'name':
+                response = 'Ates (atom) Altinkaynak';
+                break;
+            case 'occupation':
+                response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
+                break;
+            default:
+                response = 'Command not found';
         }
+        setOutput([...output, { command, response }]);
         setCommand('');
     };
 
@@ -71,6 +81,7 @@ export default function About() {
 function Terminal({ command, setCommand, handleCommand, output }) {
     return (
         <div className="terminal bg-black text-white p-4 rounded-md mt-8">
+            <h2 className="text-lg font-bold mb-4">Terminal</h2>
             <div className="output">
                 {output.map((line, index) => (
                     <div key={index}>
@@ -86,10 +97,18 @@ function Terminal({ command, setCommand, handleCommand, output }) {
                         type="text"
                         value={command}
                         onChange={(e) => setCommand(e.target.value)}
-                        className="bg-black text-white outline-none"
+                        className="bg-black text-white outline-none font-mono"
                     />
                 </label>
             </form>
+            <style jsx>{`
+                .terminal {
+                    font-family: 'Courier New', Courier, monospace;
+                }
+                .command, .response {
+                    font-family: 'Courier New', Courier, monospace;
+                }
+            `}</style>
         </div>
     );
 }
