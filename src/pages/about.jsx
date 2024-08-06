@@ -32,7 +32,7 @@ export default function About() {
             default:
                 // Fetch response from OpenAI API
                 try {
-                    const res = await fetch('/api/openai', {
+                    const res = await fetch('./openai', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
