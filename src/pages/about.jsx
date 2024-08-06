@@ -12,9 +12,12 @@ export default function About() {
     const { page } = usePage();
     const [command, setCommand] = useState('');
     const [output, setOutput] = useState([]);
+    const [firstCommand, setFirstCommand] = useState(true);
 
-    const handleCommand = (e) => {
+    const handleCommand = async (e) => {
         e.preventDefault();
+        if (command.trim() === '') return;
+
         let response = '';
         switch (command.toLowerCase()) {
             case 'age':
@@ -26,13 +29,41 @@ export default function About() {
             case 'occupation':
                 response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
                 break;
-            case 'help':
-                response = 'Commands:\n- Age\n- Name\n- Occupation\n- Help'
             default:
-                response = 'Command not found';
+                // Fetch response from OpenAI API
+                try {
+                    const res = await fetch('/api/openai', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ command }),
+                    });
+                    const data = await res.json();
+                    response = data.reply || 'Error: Could not get a response';
+                } catch (error) {
+                    response = 'Error: Could not get a response';
+                }
         }
-        setOutput([...output, { command, response }]);
         setCommand('');
+        setFirstCommand(false);
+        await displayResponse(command, response);
+    };
+
+    const displayResponse = async (command, response) => {
+        const responseLines = response.split('\n');
+        for (const line of responseLines) {
+            setOutput((prevOutput) => [...prevOutput, { command, response: '' }]);
+            const index = output.length;
+            for (let i = 0; i <= line.length; i++) {
+                setOutput((prevOutput) => {
+                    const newOutput = [...prevOutput];
+                    newOutput[index] = { command, response: line.slice(0, i) };
+                    return newOutput;
+                });
+                await new Promise(resolve => setTimeout(resolve, 50)); // Adjust typing speed here
+            }
+        }
     };
 
     return (
@@ -68,7 +99,13 @@ export default function About() {
                                 </Button>
                             </a>
                         </div>
-                        <Terminal command={command} setCommand={setCommand} handleCommand={handleCommand} output={output} />
+                        <Terminal 
+                            command={command} 
+                            setCommand={setCommand} 
+                            handleCommand={handleCommand} 
+                            output={output} 
+                            firstCommand={firstCommand} 
+                        />
                     </div>
                     <div className="relative flex-shrink-0">
                         <img src="https://avatars.githubusercontent.com/u/79448212?v=4" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
@@ -80,7 +117,7 @@ export default function About() {
     );
 }
 
-function Terminal({ command, setCommand, handleCommand, output }) {
+function Terminal({ command, setCommand, handleCommand, output, firstCommand }) {
     return (
         <div className="terminal bg-black bg-opacity-75 text-white p-4 rounded-md mt-8">
             <h2 className="text-lg font-bold mb-4">Terminal</h2>
@@ -100,7 +137,7 @@ function Terminal({ command, setCommand, handleCommand, output }) {
                         value={command}
                         onChange={(e) => setCommand(e.target.value)}
                         className="bg-transparent text-white outline-none font-mono w-full"
-                        placeholder="Send command to terminal [help]"
+                        placeholder={firstCommand ? "Send command to terminal [help]" : ""}
                         autoFocus
                     />
                 </label>
