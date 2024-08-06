@@ -68,10 +68,6 @@ export default function About() {
                         </div>
                         <Terminal command={command} setCommand={setCommand} handleCommand={handleCommand} output={output} />
                     </div>
-                    <div className="relative flex-shrink-0">
-                        <img src="https://avatars.githubusercontent.com/u/79448212?v=4" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
-                        <div className="-right-3 top-3 absolute w-full h-full top-0 right-0 border-4 rounded-full lg:rounded-lg border-primary bg-gradient-to-t from-primary" />
-                    </div>
                 </div>
             </div>
         </>
