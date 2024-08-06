@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const { command } = req.body;
     try {
         const response = await openai.createCompletion({
-            model: "text-davinci-003", // Doğru model ismini kullanın
+            model: "gpt-3.5-turbo-instruct", // Doğru model ismini kullanın
             prompt: command,
             max_tokens: 150,
         });
