@@ -152,6 +152,15 @@ export default function Navbar() {
                                 <p>Instagram</p>
                             </a>
                         </Link>
+                        <Link href="https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/">
+                            <a
+                                onClick={() => setIsOpen(false)}
+                                className="flex gap-2 px-4 items-center w-full h-12 bg-gray-500/5 rounded-lg hover:bg-gray-500/10 transition-all duration-200 text-zinc-400 hover:text-black hover:dark:text-white"
+                            >
+                                <i className="fa-brands fa-linkedin" />
+                                <p>LinkedIn</p>
+                            </a>
+                        </Link>
                         <Link href="/contact">
                             <a
                                 onClick={() => setIsOpen(false)}
