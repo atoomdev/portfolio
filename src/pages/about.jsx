@@ -1,5 +1,5 @@
 import { usePage } from 'context/page';
-import useSWR from 'hooks/useSWR';
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Transition, Dialog } from '@headlessui/react';
@@ -10,6 +10,18 @@ import Carousel from "react-multi-carousel";
 
 export default function About() {
     const { page } = usePage();
+    const [command, setCommand] = useState('');
+    const [output, setOutput] = useState([]);
+
+    const handleCommand = (e) => {
+        e.preventDefault();
+        if (command.toLowerCase() === 'age') {
+            setOutput([...output, { command, response: '16' }]);
+        } else {
+            setOutput([...output, { command, response: 'Command not found' }]);
+        }
+        setCommand('');
+    };
 
     return (
         <>
@@ -44,6 +56,7 @@ export default function About() {
                                 </Button>
                             </a>
                         </div>
+                        <Terminal command={command} setCommand={setCommand} handleCommand={handleCommand} output={output} />
                     </div>
                     <div className="relative flex-shrink-0">
                         <img src="https://avatars.githubusercontent.com/u/79448212?v=4" style={{ zIndex: 1 }} className="relative shadow-xl z-1 w-full lg:w-64 h-full lg:h-64" />
@@ -52,5 +65,31 @@ export default function About() {
                 </div>
             </div>
         </>
+    );
+}
+
+function Terminal({ command, setCommand, handleCommand, output }) {
+    return (
+        <div className="terminal bg-black text-white p-4 rounded-md mt-8">
+            <div className="output">
+                {output.map((line, index) => (
+                    <div key={index}>
+                        <span className="command">{`> ${line.command}`}</span>
+                        <div className="response">{line.response}</div>
+                    </div>
+                ))}
+            </div>
+            <form onSubmit={handleCommand}>
+                <label>
+                    <span className="prompt"> </span>
+                    <input
+                        type="text"
+                        value={command}
+                        onChange={(e) => setCommand(e.target.value)}
+                        className="bg-black text-white outline-none"
+                    />
+                </label>
+            </form>
+        </div>
     );
 }
