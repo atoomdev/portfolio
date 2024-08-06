@@ -44,7 +44,7 @@ export default function About() {
                             I am a 3rd year high school student, entrepreneur, developer, hybrid athlete and investor. I have been dealing with software for about 5 years.
                             I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
                             I will post my repositories and projects here on my portfolio.
-                            Thank you for reading. <i className="fa fa-terminal" />
+                            Thank you for reading. <i className="fa-solid fa-code"></i>
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
                             <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
@@ -81,7 +81,7 @@ export default function About() {
 function Terminal({ command, setCommand, handleCommand, output }) {
     return (
         <div className="terminal bg-black text-white p-4 rounded-md mt-8">
-            <h2 className="text-lg font-bold mb-4">Terminal</h2>
+            <h2 className="text-lg font-bold mb-4">Terminal <i className="fa-regular fa-rectangle-terminal"></i></h2>
             <div className="output">
                 {output.map((line, index) => (
                     <div key={index}>
