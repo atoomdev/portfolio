@@ -26,6 +26,8 @@ export default function About() {
             case 'occupation':
                 response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
                 break;
+            case 'help':
+                response = 'Commands:\n- Age\n- Name\n- Occupation\n- Help'
             default:
                 response = 'Command not found';
         }
