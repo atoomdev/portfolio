@@ -3,7 +3,7 @@ import Button from "components/Global/Button";
 import { useTheme } from "context/theme";
 import useSWR from "hooks/useSWR";
 import Link from "next/link";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import clquConfig from "../../../config";
 
@@ -52,7 +52,7 @@ export default function Navbar() {
             },
             active: router.pathname === '/posts'
         }
-    ]
+    ];
 
     const setIsOpen = (value) => {
         if (value === true) {
@@ -61,7 +61,7 @@ export default function Navbar() {
             document.body.style.overflow = 'auto';
         }
         setMenu(value);
-    }
+    };
 
     return <>
         <div className="max-w-7xl mx-auto py-12 w-full px-6 lg:px-0">
@@ -152,6 +152,7 @@ export default function Navbar() {
                                 <p>Instagram</p>
                             </a>
                         </Link>
+                        <div className="my-4" /> {/* Bu satır boşluk ekler */}
                         <Link href="https://www.linkedin.com/in/ate%C5%9F-alt%C4%B1nkaynak-abb5912a8/">
                             <a
                                 onClick={() => setIsOpen(false)}
@@ -161,6 +162,7 @@ export default function Navbar() {
                                 <p>LinkedIn</p>
                             </a>
                         </Link>
+                        <div className="my-4" /> {/* Bu satır boşluk ekler */}
                         <Link href="/contact">
                             <a
                                 onClick={() => setIsOpen(false)}
