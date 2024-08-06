@@ -28,6 +28,8 @@ export default function About() {
                 break;
             case 'occupation':
                 response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
+            case 'help':
+                response = 'Commands:\n- Age\n- Name\n-Occupation\n- Help'
                 break;
             default:
                 // Fetch response from OpenAI API
@@ -42,7 +44,7 @@ export default function About() {
                     const data = await res.json();
                     response = data.reply || 'Error: Could not get a response';
                 } catch (error) {
-                    response = 'Error: Could not get a response';
+                    response = 'Error: Commands not found.';
                 }
         }
         setCommand('');
