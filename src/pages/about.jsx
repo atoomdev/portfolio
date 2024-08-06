@@ -82,7 +82,7 @@ function Terminal({ command, setCommand, handleCommand, output }) {
     return (
         <div className="terminal bg-black bg-opacity-75 text-white p-4 rounded-md mt-8">
             <h2 className="text-lg font-bold mb-4">Terminal</h2>
-            <div className="output">
+            <div className="output mb-4">
                 {output.map((line, index) => (
                     <div key={index}>
                         <span className="command">{`> ${line.command}`}</span>
@@ -97,20 +97,25 @@ function Terminal({ command, setCommand, handleCommand, output }) {
                         type="text"
                         value={command}
                         onChange={(e) => setCommand(e.target.value)}
-                        className="bg-transparent text-white outline-none font-mono"
+                        className="bg-transparent text-white outline-none font-mono w-full"
                         placeholder="Send command to terminal [help]"
+                        autoFocus
                     />
                 </label>
             </form>
             <style jsx>{`
                 .terminal {
                     font-family: 'Courier New', Courier, monospace;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
                 }
                 .command, .response {
                     font-family: 'Courier New', Courier, monospace;
                 }
                 .bg-black {
                     background-color: rgba(0, 0, 0, 0.75);
+                }
+                input::placeholder {
+                    color: rgba(255, 255, 255, 0.6);
                 }
             `}</style>
         </div>
