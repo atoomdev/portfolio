@@ -28,8 +28,9 @@ export default function About() {
                 break;
             case 'occupation':
                 response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
+                break;
             case 'help':
-                response = 'Commands:\n- Age\n- Name\n-Occupation\n- Help'
+                response = 'Commands:\n- Age\n- Name\n-Occupation\n- Help';
                 break;
             default:
                 // Fetch response from OpenAI API
