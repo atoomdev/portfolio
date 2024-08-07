@@ -27,10 +27,16 @@ export default function About() {
                 response = 'Ates (atom) Altinkaynak';
                 break;
             case 'occupation':
-                response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
+                response = 'Student, entrepreneur, developer, hybrid athlete and investor.';
                 break;
             case 'help':
-                response = 'Commands: -Age, -Name, -Occupation, -Help';
+                response = 'Commands: -Age, -Name, -Occupation, -Help.';
+                break;
+            case 'school':
+                response = 'Ankara University High School';
+                break;
+            case 'technologies':
+                response = 'Languages: C++, C#, C, Python, JS, TS, JSX.\nMarkup Languages: HTML, CSS.\nFrameworks: React, NextJS, NodeJS, Tailwind.\n Databases: MongoDB, SQL.\nServices: Vercel, Cloudflare, Replit.\nOther: GitHub, GIT.\nMedia: Instagram, X, LinkedIn, Discord.';
                 break;
             default:
                 // Fetch response from OpenAI API
