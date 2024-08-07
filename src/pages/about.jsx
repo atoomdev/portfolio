@@ -66,23 +66,17 @@ export default function About() {
 
     const displayResponse = async (command, response) => {
         const responseLines = response.split('\n');
-        setOutput((prevOutput) => [
-            ...prevOutput,
-            { command, response: '' },
-        ]);
-
-        const index = output.length;
-
         for (const line of responseLines) {
+            setOutput((prevOutput) => [...prevOutput, { command, response: '' }]);
+            const index = output.length;
             for (let i = 0; i <= line.length; i++) {
                 setOutput((prevOutput) => {
                     const newOutput = [...prevOutput];
                     newOutput[index] = { command, response: line.slice(0, i) };
                     return newOutput;
                 });
-                await new Promise((resolve) => setTimeout(resolve, 50));
+                await new Promise(resolve => setTimeout(resolve, 50)); // Adjust typing speed here
             }
-            setOutput((prevOutput) => [...prevOutput, { command: '', response: '' }]);
         }
     };
 
@@ -91,11 +85,13 @@ export default function About() {
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between w-full h-full py-24 gap-24">
                     <div>
-                        <h1 className="text-4xl font-bold">
-                            Who Am <span className="relative whitespace-nowrap text-primary">I</span>?
-                        </h1>
+                        <h1 className="text-4xl font-bold">Who Am <span className="relative whitespace-nowrap text-primary">I</span>?</h1>
                         <p className="text-xl mt-1 font-mono">
-                            Hey, I'm Ates (atom) Altinkaynak. I am 16 years old. I am a 3rd year high school student, entrepreneur, developer, hybrid athlete and investor. I have been dealing with software for about 5 years. I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI. I will post my repositories and projects here on my portfolio. Thank you for reading. <i className="fa-solid fa-code"></i>
+                            Hey, I'm Ates (atom) Altinkaynak. I am 16 years old.
+                            I am a 3rd year high school student, entrepreneur, developer, hybrid athlete and investor. I have been dealing with software for about 5 years.
+                            I started with QBasic, developed QBasic programs and made my biggest improvement with Python & AI.
+                            I will post my repositories and projects here on my portfolio.
+                            Thank you for reading. <i className="fa-solid fa-code"></i>
                         </p>
                         <div className="flex space-x-4 mt-6 mb-12">
                             <a href={`https://instagram.com/atesaltnk`} target="_blank" rel="noreferrer">
@@ -117,7 +113,13 @@ export default function About() {
                                 </Button>
                             </a>
                         </div>
-                        <Terminal command={command} setCommand={setCommand} handleCommand={handleCommand} output={output} firstCommand={firstCommand} />
+                        <Terminal 
+                            command={command} 
+                            setCommand={setCommand} 
+                            handleCommand={handleCommand} 
+                            output={output} 
+                            firstCommand={firstCommand} 
+                        />
                     </div>
                 </div>
             </div>
@@ -128,13 +130,11 @@ export default function About() {
 function Terminal({ command, setCommand, handleCommand, output, firstCommand }) {
     return (
         <div className="terminal bg-black bg-opacity-75 text-white p-4 rounded-md mt-8">
-            <h2 className="text-lg font-bold mb-4">
-                Terminal <i className="fa-regular fa-rectangle-terminal"></i>
-            </h2>
+            <h2 className="text-lg font-bold mb-4">Terminal <i className="fa-regular fa-rectangle-terminal"></i></h2>
             <div className="output mb-4">
                 {output.map((line, index) => (
                     <div key={index}>
-                        <span className="command">{line.command && `> ${line.command}`}</span>
+                        <span className="command">{`> ${line.command}`}</span>
                         <div className="response">{line.response}</div>
                     </div>
                 ))}
@@ -146,8 +146,8 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                         type="text"
                         value={command}
                         onChange={(e) => setCommand(e.target.value)}
-                        className="bg-transparent text-white outline-none font-mono w-full caret-custom"
-                        placeholder={firstCommand ? 'Send command to terminal [help]' : ''}
+                        className="bg-transparent text-white outline-none font-mono w-full"
+                        placeholder={firstCommand ? "Send command to terminal [help]" : ""}
                         autoFocus
                     />
                 </label>
@@ -157,8 +157,7 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                     font-family: 'Courier New', Courier, monospace;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                 }
-                .command,
-                .response {
+                .command, .response {
                     font-family: 'Courier New', Courier, monospace;
                 }
                 .bg-black {
@@ -167,21 +166,14 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                 input::placeholder {
                     color: rgba(255, 255, 255, 0.6);
                 }
-                .caret-custom {
+                input {
                     caret-color: white;
-                    animation: caret-blink 1s steps(1) infinite;
+                    animation: caret 1s steps(1) infinite;
                 }
-                @keyframes caret-blink {
+                @keyframes caret {
                     50% {
                         border-color: transparent;
                     }
-                }
-                .output .command::before {
-                    content: '> ';
-                }
-                .output .response::before {
-                    content: '\\A';
-                    white-space: pre;
                 }
             `}</style>
         </div>
