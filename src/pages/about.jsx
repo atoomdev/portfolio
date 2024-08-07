@@ -36,12 +36,17 @@ export default function About() {
                 response = 'Ankara University High School';
                 break;
             case 'technologies':
-                response = 'Languages: C++, C#, C, Python, JS, TS, JSX.\nMarkup Languages: HTML, CSS.\nFrameworks: React, NextJS, NodeJS, Tailwind.\n Databases: MongoDB, SQL.\nServices: Vercel, Cloudflare, Replit.\nOther: GitHub, GIT.\nMedia: Instagram, X, LinkedIn, Discord.';
+                response = 'Languages: C++, C#, C, Python, JS, TS, JSX.\nMarkup Languages: HTML, CSS.\nFrameworks: React, NextJS, NodeJS, Tailwind.\nDatabases: MongoDB, SQL.\nServices: Vercel, Cloudflare, Replit.\nOther: GitHub, GIT.\nMedia: Instagram, X, LinkedIn, Discord.';
                 break;
+            case 'cls':
+            case 'clear':
+                setOutput([]);
+                setCommand('');
+                return;
             default:
                 // Fetch response from OpenAI API
                 try {
-                    const res = await fetch('./openai', {
+                    const res = await fetch('/api/openai', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -160,6 +165,15 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                 }
                 input::placeholder {
                     color: rgba(255, 255, 255, 0.6);
+                }
+                input {
+                    caret-color: white;
+                    animation: caret 1s steps(1) infinite;
+                }
+                @keyframes caret {
+                    50% {
+                        border-color: transparent;
+                    }
                 }
             `}</style>
         </div>
