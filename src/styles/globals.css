@@ -119,3 +119,42 @@ body {
     0% { width: 0; }
     100% { width: 68%; }
   }
+
+  /* Yeni renk sınıfları */
+.terminal {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal .command {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal .response {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Arka plan ve yazı renkleri için genel stiller */
+.bg-black {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.text-white {
+    color: #FFFFFF;
+}
+
+/* Geçiş ve animasyonlar */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input {
+    caret-color: white;
+    animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}

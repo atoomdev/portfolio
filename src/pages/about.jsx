@@ -13,6 +13,8 @@ export default function About() {
     const [command, setCommand] = useState('');
     const [output, setOutput] = useState([]);
     const [firstCommand, setFirstCommand] = useState(true);
+    const [bgColor, setBgColor] = useState('#000000'); // Arka plan rengi
+    const [textColor, setTextColor] = useState('#FFFFFF'); // Yazı rengi
 
     const handleCommand = async (e) => {
         e.preventDefault();
@@ -44,11 +46,27 @@ export default function About() {
                 setCommand('');
                 return;
             default:
+                if (command.startsWith('color')) {
+                    parseColorCommand(command);
+                    setCommand('');
+                    return;
+                }
                 response = 'Command not found.';
         }
         setCommand('');
         setFirstCommand(false);
         await displayResponse(command, response);
+    };
+
+    const parseColorCommand = (command) => {
+        const colorPattern = /color ([0-9A-F]{2})/i;
+        const match = command.match(colorPattern);
+
+        if (match) {
+            const [bgColorCode, textColorCode] = match[1];
+            setBgColor(colorCodes[bgColorCode] || '#000000');
+            setTextColor(colorCodes[textColorCode] || '#FFFFFF');
+        }
     };
 
     const displayResponse = async (command, response) => {
@@ -62,7 +80,7 @@ export default function About() {
                     newOutput[index] = { command, response: line.slice(0, i) };
                     return newOutput;
                 });
-                await new Promise(resolve => setTimeout(resolve, 50)); // Adjust typing speed here
+                await new Promise(resolve => setTimeout(resolve, 50)); // Typing speed
             }
         }
     };
@@ -106,6 +124,8 @@ export default function About() {
                             handleCommand={handleCommand} 
                             output={output} 
                             firstCommand={firstCommand} 
+                            bgColor={bgColor}
+                            textColor={textColor}
                         />
                     </div>
                 </div>
@@ -114,15 +134,17 @@ export default function About() {
     );
 }
 
-function Terminal({ command, setCommand, handleCommand, output, firstCommand }) {
+function Terminal({ command, setCommand, handleCommand, output, firstCommand, bgColor, textColor }) {
     return (
-        <div className="terminal bg-black bg-opacity-75 text-white p-4 rounded-md mt-8">
+        <div className="terminal" style={{ backgroundColor: bgColor, color: textColor }}>
             <h2 className="text-lg font-bold mb-4">Terminal <i className="fa-regular fa-rectangle-terminal"></i></h2>
             <div className="output mb-4">
                 {output.map((line, index) => (
                     <div key={index}>
                         <span className="command">{`> ${line.command}`}</span>
-                        <div className="response">{line.response}</div>
+                        <div className="response" style={{ color: textColor }}>
+                            {line.response}
+                        </div>
                     </div>
                 ))}
             </div>
@@ -139,30 +161,6 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                     />
                 </label>
             </form>
-            <style jsx>{`
-                .terminal {
-                    font-family: 'Courier New', Courier, monospace;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                }
-                .command, .response {
-                    font-family: 'Courier New', Courier, monospace;
-                }
-                .bg-black {
-                    background-color: rgba(0, 0, 0, 0.75);
-                }
-                input::placeholder {
-                    color: rgba(255, 255, 255, 0.6);
-                }
-                input {
-                    caret-color: white;
-                    animation: caret 1s steps(1) infinite;
-                }
-                @keyframes caret {
-                    50% {
-                        border-color: transparent;
-                    }
-                }
-            `}</style>
         </div>
     );
 }
