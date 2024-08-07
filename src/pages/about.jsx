@@ -30,13 +30,13 @@ export default function About() {
                 response = 'Student, entrepreneur, developer, hybrid athlete and investor.';
                 break;
             case 'help':
-                response = 'Commands: -Age, -Name, -Occupation, -Help.';
+                response = 'Commands: -Age, -Name, -Occupation, -Help, -Technologies.';
                 break;
             case 'school':
                 response = 'Ankara University High School';
                 break;
             case 'technologies':
-                response = 'Languages: C++, C#, C, Python, JS, TS, JSX.\nMarkup Languages: HTML, CSS.\nFrameworks: React, NextJS, NodeJS, Tailwind.\nDatabases: MongoDB, SQL.\nServices: Vercel, Cloudflare, Replit.\nOther: GitHub, GIT.\nMedia: Instagram, X, LinkedIn, Discord.';
+                response = '-Languages: C++, C#, C, Python, JS, TS, JSX -Markup Languages: HTML, CSS. -Frameworks: React, NextJS, NodeJS, Tailwind. -Databases: MongoDB, SQL. -Services: Vercel, Cloudflare, Replit. -Other: GitHub, GIT. -Media: Instagram, X, LinkedIn, Discord.';
                 break;
             case 'cls':
             case 'clear':
