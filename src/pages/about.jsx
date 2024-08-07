@@ -30,7 +30,7 @@ export default function About() {
                 response = 'Student, entrepreneur, developer, hybrid athlete, and investor';
                 break;
             case 'help':
-                response = 'Commands:\n- Age\n- Name\n-Occupation\n- Help';
+                response = 'Commands: -Age, -Name, -Occupation, -Help';
                 break;
             default:
                 // Fetch response from OpenAI API
@@ -45,7 +45,7 @@ export default function About() {
                     const data = await res.json();
                     response = data.reply || 'Error: Could not get a response';
                 } catch (error) {
-                    response = 'Error: Commands not found.';
+                    response = 'Error: Command not found.';
                 }
         }
         setCommand('');
