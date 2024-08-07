@@ -152,6 +152,7 @@ export default function Navbar() {
                                 <p>X</p>
                             </a>
                         </Link>
+                        <div className= "my-4" />
                         <Link href="https://instagram.com/atesaltnk" target="_blank" rel="noreferrer">
                             <a
                                 onClick={() => setIsOpen(false)}
