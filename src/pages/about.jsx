@@ -44,20 +44,7 @@ export default function About() {
                 setCommand('');
                 return;
             default:
-                // Fetch response from OpenAI API
-                try {
-                    const res = await fetch('/api/openai', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ command }),
-                    });
-                    const data = await res.json();
-                    response = data.reply || 'Error: Could not get a response';
-                } catch (error) {
-                    response = 'Error: Command not found.';
-                }
+                response = 'Command not found.';
         }
         setCommand('');
         setFirstCommand(false);
