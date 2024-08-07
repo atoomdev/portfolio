@@ -146,7 +146,7 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                         type="text"
                         value={command}
                         onChange={(e) => setCommand(e.target.value)}
-                        className="bg-transparent text-white outline-none font-mono w-full"
+                        className="bg-transparent text-white outline-none font-mono w-full caret-custom"
                         placeholder={firstCommand ? "Send command to terminal [help]" : ""}
                         autoFocus
                     />
@@ -166,14 +166,21 @@ function Terminal({ command, setCommand, handleCommand, output, firstCommand }) 
                 input::placeholder {
                     color: rgba(255, 255, 255, 0.6);
                 }
-                input {
+                .caret-custom {
                     caret-color: white;
-                    animation: caret 1s steps(1) infinite;
+                    animation: caret-blink 1s steps(1) infinite;
                 }
-                @keyframes caret {
+                @keyframes caret-blink {
                     50% {
                         border-color: transparent;
                     }
+                }
+                .output .command::before {
+                    content: '> ';
+                }
+                .output .response::before {
+                    content: '\\A';
+                    white-space: pre;
                 }
             `}</style>
         </div>
