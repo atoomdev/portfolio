@@ -108,9 +108,9 @@ body {
   
   .progress-value {
     animation: load 3s normal forwards;
-    box-shadow: 0 10px 40px -10px #fff;
+    box-shadow: 0 10px 40px -10px #ff04c0;
     border-radius: 100px;
-    background: #fff;
+    background: #3e09ff;
     height: 30px;
     width: 0;
   }
