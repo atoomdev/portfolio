@@ -30,9 +30,12 @@ export default function About() {
                 response = 'Student, entrepreneur, developer, hybrid athlete and investor.';
                 break;
             case 'help':
-                response = 'Commands: -Age, -Name, -Occupation, -Help, -Technologies.';
+                response = 'Commands: -Age, -Name, -Occupation, -Education, -Technologies, -School, -Help.';
                 break;
             case 'school':
+                response = 'Ankara University High School';
+                break;
+            case 'education':
                 response = 'Ankara University High School';
                 break;
             case 'technologies':
