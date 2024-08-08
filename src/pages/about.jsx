@@ -27,10 +27,10 @@ export default function About() {
                 response = 'Ates (atom) Altinkaynak';
                 break;
             case 'occupation':
-                response = 'Student, entrepreneur, developer, hybrid athlete and investor.';
+                response = 'Student, entrepreneur, developer, advertiser, hybrid athlete and investor.';
                 break;
             case 'help':
-                response = 'Commands: -Age, -Name, -Occupation, -Technologies, -Education, -School, -Help.';
+                response = 'Commands: -Age, -Name, -Occupation, -Technologies, -Education, -School, -Help, -Clear / CLS.';
                 break;
             case 'school':
                 response = 'Ankara University High School';
