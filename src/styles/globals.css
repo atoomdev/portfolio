@@ -158,3 +158,14 @@ input {
         border-color: transparent;
     }
 }
+
+.background-pattern {
+    background-image: repeating-radial-gradient(
+      circle at 0 0,
+      rgba(0, 0, 0, 0.1) 0,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  }
+  
