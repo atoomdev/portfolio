@@ -7,29 +7,29 @@ body {
     color: #000;
     overflow-x: hidden !important;
     cursor: none !important;
-}
-
-.dark body {
+  }
+  
+  .dark body {
     background: #120224;
     color: #fff;
     overflow-x: hidden !important;
-}
-
-* {
+  }
+  
+  * {
     font-family: 'Lexend Deca', sans-serif;
-}
-
-.weight-900 { font-weight: 900; }
-.weight-800 { font-weight: 800; }
-.weight-700 { font-weight: 700; }
-.weight-600 { font-weight: 600; }
-.weight-500 { font-weight: 500; }
-.weight-400 { font-weight: 400; }
-.weight-300 { font-weight: 300; }
-.weight-200 { font-weight: 200; }
-.weight-100 { font-weight: 100; }
-
-.color-layout {
+  }
+  
+  .weight-900 { font-weight: 900; }
+  .weight-800 { font-weight: 800; }
+  .weight-700 { font-weight: 700; }
+  .weight-600 { font-weight: 600; }
+  .weight-500 { font-weight: 500; }
+  .weight-400 { font-weight: 400; }
+  .weight-300 { font-weight: 300; }
+  .weight-200 { font-weight: 200; }
+  .weight-100 { font-weight: 100; }
+  
+  .color-layout {
     --color: #;
     left: 0;
     top: 0;
@@ -40,28 +40,43 @@ body {
     opacity: 100%;
     z-index: -1;
     position: fixed;
-}
-
-.layout-blue {
+  }
+  
+  .layout-blue {
     background: radial-gradient(at 150% 0%, #0d07a3 0, transparent 50%);
-}
-
-.layout-purple {
+  }
+  
+  .layout-purple {
     top: 50%;
     background: radial-gradient(at 0% 150%, #490794 0, transparent 50%);
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 0 15px rgb(0, 38, 255); } /* Kırmızı */
-    25% { box-shadow: 0 0 15px rgb(111, 0, 255); } /* Yeşil */
-    50% { box-shadow: 0 0 15px rgb(0, 0, 255); } /* Mavi */
-    75% { box-shadow: 0 0 15px rgba(153, 0, 255, 0.747); } /* Sarı */
-    100% { box-shadow: 0 0 15px rgb(0, 38, 255); } /* Kırmızı */
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 15px rgb(0, 38, 255); }
+    25% { box-shadow: 0 0 15px rgb(111, 0, 255); }
+    50% { box-shadow: 0 0 15px rgb(0, 0, 255); }
+    75% { box-shadow: 0 0 15px rgba(153, 0, 255, 0.747); }
+    100% { box-shadow: 0 0 15px rgb(0, 38, 255); }
   }
   
   .glow-effect {
-    animation: glow 5s linear infinite; /* 5 saniyede bir döngü, linear zamanlama fonksiyonu */
-    transition: box-shadow 0.3s ease; /* Geçiş efektini yumuşatır */
+    animation: glow 2s infinite;
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+  }
+  
+  .dark body::before {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
   }
   
   @keyframes gradientBorder {
