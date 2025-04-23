@@ -11,7 +11,7 @@ export default function MyDocument() {
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
                 <meta name="description" content="Ates Altinkaynak | Developer - Entrepreneur" />
-                <link rel="icon" href="https://r.resimlink.com/U4anrlRFd.png" type="image/x-icon"/>
+                <link rel="icon" href="https://r.resimlink.com/5mTNU1egy8k.png" type="image/x-icon"/>
             </Head>
             <body>
                 <Main />
