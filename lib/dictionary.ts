@@ -10,9 +10,9 @@ export const dictionary = {
       startProject: "Proje Başvurusu",
     },
     hero: {
-      headline: "Copywriting + Web Tasarım. Net, ikna edici, modern.",
+      headline: "Copywriting & Web Tasarım. Net, dinamik ve etkili.",
       subheadline:
-        "Web siteleri tasarlıyor ve ikna edici metinler yazıyorum. Tek seferlik teslimat — proje tamamlandığında kapanır. SEO hizmeti, reklam yönetimi veya aylık optimizasyon sunmuyorum.",
+        "",
       primaryCta: "Proje Başvurusu",
       secondaryCta: "Çalışmalarımı Gör",
       statusLine: "Şu an sınırlı sayıda proje kabul ediyorum.",
@@ -20,7 +20,7 @@ export const dictionary = {
     about: {
       title: "Merhaba, ben Ateş.",
       paragraph1:
-        "Karmaşık fikirleri net, ikna edici ve okunması keyifli metinlere dönüştürüyorum. İster yeni bir girişim lansmanı, ister kurumsal bir yeniden yapılanma olsun — her projede aynı titizliği gösteriyorum.",
+        "Karmaşık fikirleri net, modern ve dinamik metinlere dönüştürüyorum. İster yeni bir girişim lansmanı, ister kurumsal bir yeniden yapılanma olsun — her projede aynı titizliği gösteriyorum.",
       paragraph2:
         "Tasarım tarafında ise modern, hızlı ve mobil uyumlu siteler inşa ediyorum. Amacım sadece güzel değil, aynı zamanda dönüşüm odaklı bir deneyim sunmak.",
       whatYouGet: "Ne Alırsınız",
@@ -54,7 +54,7 @@ export const dictionary = {
         {
           title: "Satış Sayfaları & Landing Page",
           description:
-            "Dönüşüm odaklı, ikna edici satış sayfaları ve landing page tasarımları.",
+            "Dönüşüm odaklı, dinamik ve etkili satış sayfaları ve landing page tasarımları.",
         },
         {
           title: "Kurumsal Web Siteleri",
@@ -91,7 +91,7 @@ export const dictionary = {
         {
           title: "Yapı & Metin",
           description:
-            "Sayfa yapısını oluşturuyor, ikna edici metinleri yazıyorum.",
+            "Sayfa yapısını oluşturuyor, dinamik ve etkili metinler yazıyorum.",
         },
         {
           title: "Tasarım & Geliştirme",
@@ -213,7 +213,7 @@ export const dictionary = {
       intro:
         "Ben Ateş Altınkaynak. İstanbul merkezli bir copywriter ve web tasarımcısıyım.",
       story:
-        "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır, ikna edici ve akılda kalıcı metinlere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
+        "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır ve akılda kalıcı metinlere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
       values: {
         title: "Değerlerim",
         items: [
@@ -291,7 +291,7 @@ export const dictionary = {
       startProject: "Start a Project",
     },
     hero: {
-      headline: "Copywriting + Web Design. Clear, persuasive, modern.",
+      headline: "Copywriting & Web Design. Clear, persuasive and dynamic.",
       subheadline:
         "I design websites and write persuasive copy. One-time delivery — the project closes when complete. I don't offer SEO services, ad management, or monthly optimization.",
       primaryCta: "Start a Project",
