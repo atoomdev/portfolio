@@ -10,7 +10,7 @@ export const dictionary = {
       startProject: "Proje Başvurusu",
     },
     hero: {
-      headline: "Copywriting & Web Tasarım. Net, dinamik ve etkili.",
+      headline: "Web Tasarım & Yapay Zeka Geliştirme.",
       subheadline:
         "",
       primaryCta: "Proje Başvurusu",
@@ -41,7 +41,7 @@ export const dictionary = {
         all: "Tümü",
         landing: "Landing Page",
         website: "Website",
-        copywriting: "Copywriting",
+        copywriting: "Yapay Zeka Geliştirme",
         personalBrand: "Kişisel Marka",
       },
       nextProject: "Sonraki Proje",
@@ -67,7 +67,7 @@ export const dictionary = {
             "Bireysel profesyoneller için özgün ve etkileyici portfolio siteleri.",
         },
         {
-          title: "Web Sitesi Copywriting",
+          title: "Yapay Zeka Geliştirme",
           description:
             "Başlıklar, bölümler, CTA'lar — tüm site metinleri için profesyonel içerik.",
         },
@@ -211,7 +211,7 @@ export const dictionary = {
     aboutPage: {
       title: "Hakkımda",
       intro:
-        "Ben Ateş Altınkaynak. İstanbul merkezli bir copywriter ve web tasarımcısıyım.",
+        "Ben Ateş Altınkaynak. Ankara merkezli bir copywriter ve web tasarımcısıyım.",
       story:
         "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır ve akılda kalıcı metinlere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
       values: {
@@ -291,7 +291,7 @@ export const dictionary = {
       startProject: "Start a Project",
     },
     hero: {
-      headline: "Copywriting & Web Design. Clear, persuasive and dynamic.",
+      headline: "Web Design & Copywriting. Clear, persuasive and dynamic.",
       subheadline:
         "I design websites and write persuasive copy. One-time delivery — the project closes when complete. I don't offer SEO services, ad management, or monthly optimization.",
       primaryCta: "Start a Project",
@@ -322,7 +322,7 @@ export const dictionary = {
         all: "All",
         landing: "Landing Page",
         website: "Website",
-        copywriting: "Copywriting",
+        copywriting: "AI Development",
         personalBrand: "Personal Brand",
       },
       nextProject: "Next Project",
@@ -348,7 +348,7 @@ export const dictionary = {
             "Unique and impactful portfolio sites for individual professionals.",
         },
         {
-          title: "Website Copywriting",
+          title: "AI Development",
           description:
             "Headlines, sections, CTAs — professional content for all site copy.",
         },
