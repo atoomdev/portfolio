@@ -211,7 +211,7 @@ export const dictionary = {
     aboutPage: {
       title: "Hakkımda",
       intro:
-        "Ben Ateş Altınkaynak. Ankara merkezli bir copywriter ve web tasarımcısıyım.",
+        "Ben Ateş Altınkaynak. Ankara merkezli bir developer ve web tasarımcısıyım.",
       story:
         "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır ve akılda kalıcı metinlere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
       values: {
@@ -291,9 +291,9 @@ export const dictionary = {
       startProject: "Start a Project",
     },
     hero: {
-      headline: "Web Design & Copywriting. Clear, persuasive and dynamic.",
+      headline: "Web Design & AI Development. Clear, persuasive and dynamic.",
       subheadline:
-        "I design websites and write persuasive copy. One-time delivery — the project closes when complete. I don't offer SEO services, ad management, or monthly optimization.",
+        "I design websites and develop AI content. One-time delivery — the project closes when complete. I don't offer SEO services, ad management, or monthly optimization.",
       primaryCta: "Start a Project",
       secondaryCta: "See My Work",
       statusLine: "Currently accepting a limited number of projects.",
@@ -301,13 +301,13 @@ export const dictionary = {
     about: {
       title: "Hi, I'm Ateş.",
       paragraph1:
-        "I transform complex ideas into clear, persuasive, and enjoyable copy. Whether it's a new startup launch or a corporate restructuring — I bring the same level of care to every project.",
+        "I transform complex ideas into clear, dynamic, and enjoyable content. Whether it's a new startup launch or a corporate restructuring — I bring the same level of care to every project.",
       paragraph2:
         "On the design side, I build modern, fast, and mobile-responsive sites. My goal is to deliver not just beauty, but a conversion-focused experience.",
       whatYouGet: "What You Get",
       bullets: [
         "Strategy-led structure",
-        "Conversion-focused copy",
+        "Conversion-focused content",
         "Modern, responsive design",
         "Clean delivery & closure",
       ],
@@ -370,14 +370,14 @@ export const dictionary = {
             "We clarify the project scope, goals, and expectations.",
         },
         {
-          title: "Structure & Copy",
+          title: "Structure & Content",
           description:
-            "I create the page structure and write persuasive copy.",
+            "I create the page structure and develop AI content.",
         },
         {
           title: "Design & Build",
           description:
-            "I bring the modern, responsive design to life.",
+            "I bring the modern, responsive design and AI content to life.",
         },
         {
           title: "Delivery & Closure",
@@ -448,8 +448,9 @@ export const dictionary = {
       needOptions: [
         "Website",
         "Landing page",
-        "Copywriting",
+        "AI Development",
         "Consultation",
+        "Copywriting",
       ],
       budgetRange: "Budget Range",
       budgetPlaceholder: "Select...",
@@ -492,7 +493,7 @@ export const dictionary = {
     aboutPage: {
       title: "About Me",
       intro:
-        "I'm Ateş Altınkaynak. An Istanbul-based copywriter and web designer.",
+        "I'm Ateş Altınkaynak. An Ankara based AI developer and web designer.",
       story:
         "For years, I've been helping brands strengthen their digital presence. I transform complex ideas into clear, persuasive, and memorable copy. On the design side, I build fast, modern websites that prioritize user experience.",
       values: {
@@ -519,7 +520,7 @@ export const dictionary = {
         title: "How I Think",
         items: [
           "Good design should be invisible — it should guide the user to the goal.",
-          "Good copy persuades but is never pushy.",
+          "Good content persuades but is never pushy.",
           "Every project is unique; I don't offer template solutions.",
           "The process should be transparent; surprises aren't pleasant.",
         ],
@@ -560,7 +561,7 @@ export const dictionary = {
     },
     footer: {
       copyright: "All rights reserved.",
-      builtWith: "Built with Next.js",
+      builtWith: "Built with ❤︎ by Light AI & Ateş Altınkaynak",
     },
   },
 } as const
