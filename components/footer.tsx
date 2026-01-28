@@ -18,7 +18,7 @@ export function Footer() {
               Ateş Altınkaynak
             </Link>
             <p className="text-sm text-muted-foreground">
-              Copywriter & Web Designer
+              AI Developer & Web Designer
             </p>
           </div>
 

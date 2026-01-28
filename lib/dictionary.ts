@@ -167,7 +167,7 @@ export const dictionary = {
       needOptions: [
         "Web sitesi",
         "Landing page",
-        "Copywriting",
+        "Yapay Zeka Geliştirme",
         "Danışmanlık",
       ],
       budgetRange: "Bütçe Aralığı",
@@ -561,7 +561,7 @@ export const dictionary = {
     },
     footer: {
       copyright: "All rights reserved.",
-      builtWith: "Built with ❤︎ by Light AI & Ateş Altınkaynak",
+      builtWith: "Built by Light AI",
     },
   },
 } as const
