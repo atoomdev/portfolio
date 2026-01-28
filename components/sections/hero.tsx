@@ -9,6 +9,18 @@ import { AnimatedBackgroundLayer } from "@/components/motion/animated-background
 import { CursorSpotlight } from "@/components/motion/cursor-spotlight"
 import { cn } from "@/lib/utils"
 
+function normalizeHeadlineSpacing(input: string) {
+  // Ensure readable spacing after punctuation and around "+".
+  // Example: "Copywriting+WebDesign. Clear,persuasive,modern."
+  // -> "Copywriting + WebDesign. Clear, persuasive, modern."
+  return input
+    .replace(/\+/g, " + ")
+    .replace(/([,;:!?])(?=\S)/g, "$1 ")
+    .replace(/([.])(?=\S)/g, "$1 ")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
 // Split text into words for staggered animation
 function SplitText({
   text,
@@ -17,7 +29,7 @@ function SplitText({
   text: string
   className?: string
 }) {
-  const words = text.split(" ")
+  const words = normalizeHeadlineSpacing(text).split(" ")
 
   return (
     <span className={className}>
