@@ -13,12 +13,22 @@ function normalizeHeadlineSpacing(input: string) {
   // Ensure readable spacing after punctuation and around "+".
   // Example: "Copywriting+WebDesign. Clear,persuasive,modern."
   // -> "Copywriting + WebDesign. Clear, persuasive, modern."
-  return input
-    .replace(/\+/g, " + ")
-    .replace(/([,;:!?])(?=\S)/g, "$1 ")
-    .replace(/([.])(?=\S)/g, "$1 ")
-    .replace(/\s+/g, " ")
-    .trim()
+  const plusLike = /[+\uFF0B]/g // + and fullwidth ＋
+  const punctuation = /[.,;:!?]/g
+
+  return (
+    input
+      // Normalize plus variants to " + "
+      .replace(plusLike, " + ")
+      // Ensure spacing between letters/numbers and punctuation both ways.
+      // "Clear,persuasive" -> "Clear, persuasive"
+      // "modern." -> "modern."
+      .replace(/([\p{L}\p{N}])([.,;:!?])/gu, "$1$2 ")
+      .replace(/([.,;:!?])([\p{L}\p{N}])/gu, "$1 $2")
+      // Collapse whitespace
+      .replace(/\s+/g, " ")
+      .trim()
+  )
 }
 
 // Split text into words for staggered animation
@@ -34,25 +44,27 @@ function SplitText({
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden">
-          <motion.span
-            className="inline-block"
-            initial={false}
-            variants={{
-              hidden: { y: "100%", opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-                transition: {
-                  duration: 0.5,
-                  ease: [0.25, 0.46, 0.45, 0.94],
+        <span key={i} className="inline">
+          <span className="inline-block overflow-hidden">
+            <motion.span
+              className="inline-block"
+              initial={false}
+              variants={{
+                hidden: { y: "100%", opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: 0.5,
+                    ease: [0.25, 0.46, 0.45, 0.94] as const,
+                  },
                 },
-              },
-            }}
-          >
-            {word}
-          </motion.span>
-          {i < words.length - 1 && " "}
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+          {i < words.length - 1 && <span aria-hidden>{"\u00A0"}</span>}
         </span>
       ))}
     </span>
@@ -94,7 +106,7 @@ export function HeroSection() {
       filter: "blur(0px)",
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }
@@ -112,7 +124,7 @@ export function HeroSection() {
         <AnimatedBackgroundLayer
           variant="hero"
           showGrid={false}
-          disableAnimations={!mounted || shouldReduceMotion}
+          disableAnimations={!mounted || Boolean(shouldReduceMotion)}
         />
 
         <div className="mx-auto max-w-6xl px-6 w-full relative z-10">
