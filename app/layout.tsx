@@ -10,7 +10,7 @@ const _inter = Inter({ subsets: ["latin", "latin-ext"] })
 const _playfair = Playfair_Display({ subsets: ["latin", "latin-ext"] })
 
 export const metadata: Metadata = {
-  title: "Ateş Altınkaynak | Copywriter & Web Designer",
+  title: "Ateş Altınkaynak | Web Designer & AI Developer",
   description:
     "Copywriting + Web Tasarım. Net, ikna edici, modern. Web siteleri tasarlıyor ve ikna edici metinler yazıyorum.",
   icons: {
