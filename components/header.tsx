@@ -96,31 +96,30 @@ export function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
       <motion.div
-        className="mx-auto max-w-6xl px-4"
-        layout
-        initial={{ y: -80, opacity: 0 }}
+        className="w-full flex justify-center"
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           type: "spring",
           stiffness: 260,
-          damping: 28,
+          damping: 20,
         }}
       >
         <motion.div
           className={cn(
-            "glass-panel border border-border/30 flex items-center justify-between",
+            "glass-panel flex items-center justify-between border-border/30",
             "transition-[background-color,box-shadow,backdrop-filter] duration-300",
             isScrolled
-              ? "bg-background/80 backdrop-blur-md shadow-lg"
-              : "bg-background/50 backdrop-blur-sm shadow-none border-transparent"
+              ? "bg-background/80 backdrop-blur-md shadow-lg border"
+              : "bg-background/60 backdrop-blur-md shadow-none border-b"
           )}
           animate={{
+            width: isScrolled ? "min(100% - 24px, 72rem)" : "100%",
             marginTop: isScrolled ? 12 : 0,
             borderRadius: isScrolled ? "9999px" : "0px",
-            padding: isScrolled ? "12px 24px" : "20px 32px",
-            width: "100%",
+            padding: isScrolled ? "12px 24px" : "16px 48px",
           }}
           transition={{
             type: "spring",
