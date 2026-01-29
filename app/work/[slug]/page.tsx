@@ -45,15 +45,15 @@ const projectsData = {
       "After the site went live, there was a noticeable increase in client inquiries. The minimal approach strengthened the professional image.",
   },
   "kolay-finans": {
-    titleTr: "Kadir ALkan Hair Artist",
-    titleEn: "Kadir ALkan Hair Artist",
+    titleTr: "Kadir Alkan Hair Artist",
+    titleEn: "Kadir Alkan Hair Artist",
     type: "website",
-    goalTr: "Kadir ALkan Hair Artist sitesi",
-    goalEn: "Website for Kadir ALkan Hair Artist",
+    goalTr: "Kadir Alkan Hair Artist sitesi",
+    goalEn: "Website for Kadir Alkan Hair Artist",
     approachTr:
-      "Kadir ALkan Hair Artist sitesi için minimal bir tasarım dili seçtik — metin sadece gerektiği kadar, görseller konuşsun dedik. Hızlı yükleme ve mobil deneyim öncelikli tutuldu.",
+      "Kadir Alkan Hair Artist sitesi için minimal bir tasarım dili seçtik — metin sadece gerektiği kadar, görseller konuşsun dedik. Hızlı yükleme ve mobil deneyim öncelikli tutuldu.",
     approachEn:
-      "Kadir ALkan Hair Artist site for minimal design language — only as much text as necessary, let the visuals speak. Fast loading and mobile experience were prioritized.",
+      "Kadir Alkan Hair Artist site for minimal design language — only as much text as necessary, let the visuals speak. Fast loading and mobile experience were prioritized.",
     deliverablesTr: ["Metin (tüm sayfalar)", "UI/UX Tasarım", "Multi-page Geliştirme"],
     deliverablesEn: ["Copy (all pages)", "UI/UX Design", "Multi-page Development"],
     outcomeTr:
