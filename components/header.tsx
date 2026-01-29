@@ -74,19 +74,37 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
 
+  // Single scroll listener source
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24)
     }
-
-    // Check immediately on mount
     handleScroll()
-
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [shouldReduceMotion])
+  }, [])
+
+  // Body scroll lock for mobile menu
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
+
+  // Close menu on ESC
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false)
+    }
+    window.addEventListener("keydown", handleEsc)
+    return () => window.removeEventListener("keydown", handleEsc)
+  }, [])
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -96,21 +114,15 @@ export function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
       <motion.div
-        className="w-full flex justify-center"
+        className="w-full flex justify-center pointer-events-auto"
         initial={false}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
       >
         <motion.div
           className={cn(
             "glass-panel flex items-center justify-between border-border/30",
-            "transition-[background-color,box-shadow,backdrop-filter] duration-300",
+            "transition-[background-color,box-shadow,backdrop-filter] duration-500",
             isScrolled
               ? "bg-background/80 backdrop-blur-md shadow-lg border"
               : "bg-background/60 backdrop-blur-md shadow-none border-b"
@@ -119,13 +131,13 @@ export function Header() {
             width: isScrolled ? "min(100% - 24px, 72rem)" : "100%",
             marginTop: isScrolled ? 12 : 0,
             borderRadius: isScrolled ? "9999px" : "0px",
-            padding: isScrolled ? "12px 24px" : "16px 48px",
+            padding: isScrolled ? "10px 24px" : "16px 48px",
           }}
           transition={{
             type: "spring",
-            stiffness: 200,
-            damping: 25,
-            mass: 0.8
+            stiffness: 260,
+            damping: 30,
+            mass: 1
           }}
         >
           {/* Logo */}
@@ -196,65 +208,68 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
-            aria-label="Toggle menu"
-            whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
-          >
-            <AnimatePresence mode="wait">
-              {mobileMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X size={24} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu size={24} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded z-[110]"
+              aria-label="Toggle menu"
+            >
+              <AnimatePresence mode="wait">
+                {mobileMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X size={24} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu size={24} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
         </motion.div>
       </motion.div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="md:hidden glass-panel border-b border-border/30 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl md:hidden overflow-hidden pointer-events-auto"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <nav className="px-6 py-4 space-y-2">
+            <nav
+              className="flex flex-col items-center justify-center min-h-[100dvh] px-6 py-20 space-y-6 pt-[calc(5rem+env(safe-area-inset-top))]"
+              onClick={(e) => e.stopPropagation()}
+            >
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.href}
-                  initial={shouldReduceMotion ? {} : { opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "block text-base py-3 transition-colors",
-                      pathname === item.href
-                        ? "text-foreground font-medium"
-                        : "text-muted-foreground"
+                      "text-3xl font-serif font-medium transition-colors",
+                      pathname === item.href ? "text-primary" : "text-foreground hover:text-primary"
                     )}
                   >
                     {item.label}
@@ -262,20 +277,17 @@ export function Header() {
                 </motion.div>
               ))}
 
-              {/* Mobile Language Toggle */}
               <motion.div
-                className="flex items-center gap-2 py-3"
-                initial={shouldReduceMotion ? {} : { opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.05 }}
+                className="flex items-center gap-4 py-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
               >
                 <button
                   onClick={() => setLocale("tr")}
                   className={cn(
-                    "px-3 py-1.5 text-sm font-medium rounded-lg transition-all",
-                    locale === "tr"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-muted-foreground"
+                    "px-4 py-2 text-sm font-medium rounded-full transition-all border",
+                    locale === "tr" ? "bg-primary border-primary text-primary-foreground" : "border-border text-muted-foreground"
                   )}
                 >
                   Türkçe
@@ -283,26 +295,24 @@ export function Header() {
                 <button
                   onClick={() => setLocale("en")}
                   className={cn(
-                    "px-3 py-1.5 text-sm font-medium rounded-lg transition-all",
-                    locale === "en"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-muted-foreground"
+                    "px-4 py-2 text-sm font-medium rounded-full transition-all border",
+                    locale === "en" ? "bg-primary border-primary text-primary-foreground" : "border-border text-muted-foreground"
                   )}
                 >
                   English
                 </button>
               </motion.div>
 
-              {/* Mobile CTA */}
               <motion.div
-                initial={shouldReduceMotion ? {} : { opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 1) * 0.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="w-full max-w-xs"
               >
                 <Link
                   href="/start-project"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-3 bg-primary text-primary-foreground font-medium rounded-lg mt-2"
+                  className="block w-full text-center px-6 py-4 bg-primary text-primary-foreground font-semibold rounded-xl text-lg shadow-lg shadow-primary/20"
                 >
                   {t.nav.startProject}
                 </Link>
