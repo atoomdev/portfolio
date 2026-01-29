@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion"
 import { Check, X } from "lucide-react"
+import Image from "next/image"
 import { Footer } from "@/components/footer"
 
 import { useLanguage } from "@/lib/language-context"
@@ -39,14 +40,18 @@ export default function AboutPage() {
               {/* Portrait */}
               <div className="md:col-span-2">
                 <div className="relative">
-                  <div className="aspect-[3/4] bg-card rounded-2xl border border-border/50 overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="font-serif text-4xl text-primary font-bold">A</span>
-                      </div>
-                    </div>
+                  <div className="aspect-[3/4] bg-card rounded-2xl border border-border/50 overflow-hidden relative group">
+                    <Image
+                      src="/ates.jpeg"
+                      alt="Ateş Altınkaynak"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority
+                    />
+                    {/* Dark overlay for signature readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     {/* Signature */}
-                    <div className="absolute bottom-6 right-6 text-primary/60 font-serif italic text-lg">
+                    <div className="absolute bottom-6 right-6 text-white/90 font-serif italic text-lg z-10 drop-shadow-md">
                       Ateş
                     </div>
                   </div>
