@@ -12,10 +12,10 @@ export const dictionary = {
     hero: {
       headline: "Web Tasarım & Yapay Zeka Geliştirme.",
       subheadline:
-        "",
+        "Üst düzey web tasarım ve yapay zeka geliştirme hizmetleri. Modern, responsive ve mobil uyumlu siteler oluşturuyorum.",
       primaryCta: "Proje Başvurusu",
       secondaryCta: "Çalışmalarımı Gör",
-      statusLine: "Şu an sınırlı sayıda proje kabul ediyorum.",
+      statusLine: "Şu an sınırlı sayıda proje kabul edebilirim.",
     },
     about: {
       title: "Merhaba, ben Ateş.",
@@ -200,7 +200,7 @@ export const dictionary = {
       submit: "Başvuruyu Gönder",
       successTitle: "Teşekkürler!",
       successMessage:
-        "Başvurunuzu inceleyeceğim. Uygunsa belirttiğiniz zaman aralığında sizi ararım. Her başvuru kabul edilmez.",
+        "Başvurunuzu inceleyeceğim. Uygunsa belirttiğiniz zaman aralığında size ulaşacağım.",
       errors: {
         required: "Bu alan zorunludur",
         email: "Geçerli bir e-posta adresi giriniz",
@@ -211,9 +211,9 @@ export const dictionary = {
     aboutPage: {
       title: "Hakkımda",
       intro:
-        "Ben Ateş Altınkaynak. Ankara merkezli bir developer ve web tasarımcısıyım.",
+        "Ben Ateş Altınkaynak. Ankara merkezli bir full-stack developer ve web tasarımcısıyım.",
       story:
-        "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır ve akılda kalıcı metinlere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
+        "Yıllardır markaların dijital varlıklarını güçlendirmeye yardımcı oluyorum. Karmaşık fikirleri anlaşılır ve akılda kalıcı sitelere dönüştürüyorum. Tasarım tarafında ise kullanıcı deneyimini ön planda tutan, hızlı ve modern web siteleri inşa ediyorum.",
       values: {
         title: "Değerlerim",
         items: [
@@ -279,7 +279,7 @@ export const dictionary = {
     },
     footer: {
       copyright: "Tüm hakları saklıdır.",
-      builtWith: "Next.js ile geliştirildi",
+      builtWith: "Built by Light AI",
     },
   },
   en: {
@@ -293,15 +293,15 @@ export const dictionary = {
     hero: {
       headline: "Web Design & AI Development. Clear, persuasive and dynamic.",
       subheadline:
-        "I design websites and develop AI content. One-time delivery — the project closes when complete. I don't offer SEO services, ad management, or monthly optimization.",
+        "I design websites and develop AI content.",
       primaryCta: "Start a Project",
       secondaryCta: "See My Work",
-      statusLine: "Currently accepting a limited number of projects.",
+      statusLine: "Currently able to accept a limited number of projects.",
     },
     about: {
       title: "Hi, I'm Ateş.",
       paragraph1:
-        "I transform complex ideas into clear, dynamic, and enjoyable content. Whether it's a new startup launch or a corporate restructuring — I bring the same level of care to every project.",
+        "I transform complex ideas into clear, dynamic content. Whether it's a new startup launch or a corporate restructuring — I bring the same level of care to every project.",
       paragraph2:
         "On the design side, I build modern, fast, and mobile-responsive sites. My goal is to deliver not just beauty, but a conversion-focused experience.",
       whatYouGet: "What You Get",
@@ -426,7 +426,7 @@ export const dictionary = {
     form: {
       title: "Start a Project",
       subtitle:
-        "Fill out the form below for me to evaluate your project. If it's a good fit, I'll call you at your preferred time.",
+        "Fill out the form below for me to evaluate your project. I'll call you at your preferred time.",
       contactInfo: "Contact Information",
       projectNeeds: "Project Needs",
       budgetInfo: "Budget & Terms",
@@ -482,7 +482,7 @@ export const dictionary = {
       submit: "Submit Application",
       successTitle: "Thank you!",
       successMessage:
-        "I'll review your application. If it's a fit, I'll call you at your specified time. Not every application is accepted.",
+        "I'll review your application. I'll call you at your specified time.",
       errors: {
         required: "This field is required",
         email: "Please enter a valid email address",
@@ -493,7 +493,7 @@ export const dictionary = {
     aboutPage: {
       title: "About Me",
       intro:
-        "I'm Ateş Altınkaynak. An Ankara based AI developer and web designer.",
+        "I'm Ateş Altınkaynak. An Türkiye/Ankara based full-stack AI developer and web designer.",
       story:
         "For years, I've been helping brands strengthen their digital presence. I transform complex ideas into clear, persuasive, and memorable copy. On the design side, I build fast, modern websites that prioritize user experience.",
       values: {

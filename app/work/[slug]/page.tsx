@@ -11,11 +11,11 @@ import { SectionWrapper } from "@/components/section-wrapper"
 
 const projectsData = {
   innovex: {
-    titleTr: "Innovex Teknoloji",
-    titleEn: "Innovex Technology",
-    type: "landing",
-    goalTr: "B2B SaaS ürünü için dönüşüm odaklı landing page oluşturmak",
-    goalEn: "Create a conversion-focused landing page for B2B SaaS product",
+    titleTr: "Sheraton Ankara Hotel & Convention Center",
+    titleEn: "Sheraton Ankara Hotel & Convention Center",
+    type: "website",
+    goalTr: "Sheraton Ankara Hotel & Convention Center sitesi",
+    goalEn: "Website for Sheraton Ankara Hotel & Convention Center",
     approachTr:
       "Müşteri araştırması ve rakip analizi ile başladık. Ürünün karmaşık özelliklerini anlaşılır bir dile çevirdik. Headline'dan CTA'ya kadar her element dönüşüm odaklı tasarlandı.",
     approachEn:
@@ -23,20 +23,20 @@ const projectsData = {
     deliverablesTr: ["Metin (tüm sayfa)", "UI/UX Tasarım", "Responsive Geliştirme"],
     deliverablesEn: ["Copy (full page)", "UI/UX Design", "Responsive Development"],
     outcomeTr:
-      "Landing page, beklenen dönüşüm hedeflerinin üzerinde performans gösterdi. Müşteri, satış ekibinin kaliteli lead'lerle daha verimli çalışabildiğini belirtti.",
+      "Website, beklenen dönüşüm hedeflerinin üzerinde performans gösterdi. Müşteri, satış ekibinin kaliteli lead'lerle daha verimli çalışabildiğini belirtti.",
     outcomeEn:
-      "The landing page performed above expected conversion targets. The client noted that their sales team could work more efficiently with quality leads.",
+      "The website performed above expected conversion targets. The client noted that their sales team could work more efficiently with quality leads.",
   },
   "deniz-yilmaz": {
-    titleTr: "Deniz Yılmaz Portfolio",
-    titleEn: "Deniz Yılmaz Portfolio",
-    type: "personalBrand",
-    goalTr: "Serbest fotoğrafçı için minimal ve etkileyici kişisel marka sitesi",
-    goalEn: "Minimal and impactful personal brand site for freelance photographer",
+    titleTr: "Barle Pub & Kitchen",
+    titleEn: "Barle Pub & Kitchen",
+    type: "website",
+    goalTr: "Barle Pub & Kitchen sitesi",
+    goalEn: "Website for Barle Pub & Kitchen",
     approachTr:
-      "Fotoğrafların ön planda olması gerekiyordu. Minimal bir tasarım dili seçtik — metin sadece gerektiği kadar, görseller konuşsun dedik. Hızlı yükleme ve mobil deneyim öncelikli tutuldu.",
+      "Barle Pub & Kitchen sitesi için minimal bir tasarım dili seçtik — metin sadece gerektiği kadar, görseller konuşsun dedik. Hızlı yükleme ve mobil deneyim öncelikli tutuldu.",
     approachEn:
-      "The photos needed to take center stage. We chose a minimal design language — only as much text as necessary, let the visuals speak. Fast loading and mobile experience were prioritized.",
+      "Barle Pub & Kitchen site for minimal design language — only as much text as necessary, let the visuals speak. Fast loading and mobile experience were prioritized.",
     deliverablesTr: ["Metin (hakkımda, hizmetler)", "Portfolio Tasarımı", "Responsive Geliştirme"],
     deliverablesEn: ["Copy (about, services)", "Portfolio Design", "Responsive Development"],
     outcomeTr:
@@ -45,15 +45,15 @@ const projectsData = {
       "After the site went live, there was a noticeable increase in client inquiries. The minimal approach strengthened the professional image.",
   },
   "kolay-finans": {
-    titleTr: "Kolay Finans",
-    titleEn: "Kolay Finans",
+    titleTr: "Kadir ALkan Hair Artist",
+    titleEn: "Kadir ALkan Hair Artist",
     type: "website",
-    goalTr: "Fintech girişimi için güven veren çok sayfalı kurumsal site",
-    goalEn: "Trust-building multi-page corporate site for fintech startup",
+    goalTr: "Kadir ALkan Hair Artist sitesi",
+    goalEn: "Website for Kadir ALkan Hair Artist",
     approachTr:
-      "Fintech'te güven çok önemli. Hem metinlerde hem tasarımda profesyonellik ve şeffaflık vurgulandı. Karmaşık finansal kavramlar basit dille anlatıldı.",
+      "Kadir ALkan Hair Artist sitesi için minimal bir tasarım dili seçtik — metin sadece gerektiği kadar, görseller konuşsun dedik. Hızlı yükleme ve mobil deneyim öncelikli tutuldu.",
     approachEn:
-      "Trust is crucial in fintech. Professionalism and transparency were emphasized in both copy and design. Complex financial concepts were explained in simple language.",
+      "Kadir ALkan Hair Artist site for minimal design language — only as much text as necessary, let the visuals speak. Fast loading and mobile experience were prioritized.",
     deliverablesTr: ["Metin (tüm sayfalar)", "UI/UX Tasarım", "Multi-page Geliştirme"],
     deliverablesEn: ["Copy (all pages)", "UI/UX Design", "Multi-page Development"],
     outcomeTr:

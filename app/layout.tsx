@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: [
     "copywriter",
     "web designer",
-    "Istanbul",
+    "Ankara",
     "freelance",
     "web tasarım",
     "metin yazarı",

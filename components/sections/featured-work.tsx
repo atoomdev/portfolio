@@ -14,11 +14,11 @@ import { cn } from "@/lib/utils"
 const projects = [
   {
     id: "innovex",
-    type: "landing",
-    titleTr: "Innovex Teknoloji",
-    titleEn: "Innovex Technology",
-    goalTr: "B2B SaaS ürünü için dönüşüm odaklı landing page",
-    goalEn: "Conversion-focused landing page for B2B SaaS product",
+    type: "website",
+    titleTr: "Sheraton Ankara Hotel & Convention Center ",
+    titleEn: "Sheraton Ankara Hotel & Convention Center",
+    goalTr: "Sheraton Ankara Hotel & Convention Center sitesi",
+    goalEn: "Website for Sheraton Ankara Hotel & Convention Center",
     deliverablesTr: "Metin + Tasarım + Geliştirme",
     deliverablesEn: "Copy + Design + Development",
     featured: false,
@@ -39,10 +39,10 @@ const projects = [
   {
     id: "kolay-finans",
     type: "website",
-    titleTr: "Kolay Finans",
-    titleEn: "Kolay Finans",
-    goalTr: "Fintech girişimi için çok sayfalı kurumsal site",
-    goalEn: "Multi-page corporate site for fintech startup",
+    titleTr: "Kadir ALkan Hair Artist",
+    titleEn: "Kadir ALkan Hair Artist",
+    goalTr: "Kadir ALkan Hair Artist sitesi",
+    goalEn: "Website for Kadir ALkan Hair Artist",
     deliverablesTr: "Metin + Tasarım + Geliştirme",
     deliverablesEn: "Copy + Design + Development",
     featured: false,
@@ -76,8 +76,8 @@ const typeLabels = {
 }
 
 // Featured project card with shine sweep effect
-function FeaturedProjectCard({ project, locale, t }: { 
-  project: typeof projects[0]; 
+function FeaturedProjectCard({ project, locale, t }: {
+  project: typeof projects[0];
   locale: "tr" | "en";
   t: ReturnType<typeof useLanguage>["t"];
 }) {
@@ -144,7 +144,7 @@ function FeaturedProjectCard({ project, locale, t }: {
               {typeLabels[locale][project.type as keyof typeof typeLabels.tr]}
             </span>
 
-            <motion.h3 
+            <motion.h3
               className="font-serif text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300"
               whileHover={shouldReduceMotion ? {} : { x: 4 }}
               transition={{ duration: 0.3 }}
@@ -184,7 +184,7 @@ function FeaturedProjectCard({ project, locale, t }: {
 
         {/* Border glow on hover */}
         <div className="absolute inset-0 rounded-2xl border-2 border-primary/0 group-hover:border-primary/30 transition-colors duration-500 pointer-events-none" />
-        
+
         {/* Subtle outer glow */}
         <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none glow-green-subtle" />
       </motion.div>
@@ -193,8 +193,8 @@ function FeaturedProjectCard({ project, locale, t }: {
 }
 
 // Regular project card
-function ProjectCard({ project, locale, t, index }: { 
-  project: typeof projects[0]; 
+function ProjectCard({ project, locale, t, index }: {
+  project: typeof projects[0];
   locale: "tr" | "en";
   t: ReturnType<typeof useLanguage>["t"];
   index: number;
@@ -211,8 +211,8 @@ function ProjectCard({ project, locale, t, index }: {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ 
-          duration: 0.4, 
+        transition={{
+          duration: 0.4,
           delay: index * 0.1,
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
@@ -220,7 +220,7 @@ function ProjectCard({ project, locale, t, index }: {
       >
         {/* Image placeholder with parallax */}
         <div className="aspect-[16/10] bg-secondary/30 relative overflow-hidden">
-          <motion.div 
+          <motion.div
             className="absolute inset-0 flex items-center justify-center"
             whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -304,11 +304,11 @@ export function FeaturedWorkSection() {
         {/* Other Projects Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {otherProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              locale={locale} 
-              t={t} 
+            <ProjectCard
+              key={project.id}
+              project={project}
+              locale={locale}
+              t={t}
               index={index}
             />
           ))}
