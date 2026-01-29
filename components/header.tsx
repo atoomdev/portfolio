@@ -107,12 +107,18 @@ export function Header() {
         }}
       >
         <motion.div
-          layout
           className={cn(
             "glass-panel border border-border/30 flex items-center justify-between",
             "transition-[background-color,box-shadow,backdrop-filter] duration-300",
-            isScrolled ? "mt-3 rounded-full py-2 px-4 bg-background/90 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.55)]" : "mt-4 rounded-lg py-4 px-6 bg-background/70"
+            isScrolled 
+              ? "bg-background/90 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.55)]" 
+              : "bg-background/70"
           )}
+          animate={{
+            marginTop: isScrolled ? 12 : 16,
+            borderRadius: isScrolled ? "50px" : "8px",
+            padding: isScrolled ? "8px 16px" : "16px 24px",
+          }}
           transition={{
             type: "spring",
             stiffness: 260,
@@ -218,7 +224,6 @@ export function Header() {
               </AnimatePresence>
             </motion.button>
           </motion.div>
-        </div>
       </motion.div>
 
       {/* Mobile Menu */}
