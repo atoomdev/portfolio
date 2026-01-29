@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: "Ateş Altınkaynak | Copywriter & Web Designer",
   description:
     "Copywriting + Web Tasarım. Net, ikna edici, modern. Web siteleri tasarlıyor ve ikna edici metinler yazıyorum.",
-  generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico", 
+  },
   keywords: [
     "copywriter",
     "web designer",
