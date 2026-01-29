@@ -69,7 +69,6 @@ export function AnimatedBackgroundLayer({
                         className="absolute w-[600px] h-[600px] rounded-full"
                         style={{
                             background: `radial-gradient(circle, oklch(0.45 0.12 155 / ${config.glowOpacity}) 0%, transparent 70%)`,
-                            filter: "blur(120px)",
                         }}
                         animate={{
                             x: ["10%", "60%", "10%"],
@@ -88,7 +87,6 @@ export function AnimatedBackgroundLayer({
                         className="absolute w-[500px] h-[500px] rounded-full"
                         style={{
                             background: `radial-gradient(circle, oklch(0.45 0.12 155 / ${config.glowOpacity}) 0%, transparent 70%)`,
-                            filter: "blur(100px)",
                         }}
                         animate={{
                             x: ["70%", "20%", "70%"],
@@ -103,21 +101,13 @@ export function AnimatedBackgroundLayer({
                         }}
                     />
 
-                    {/* Glow 3 - Central pulse (New source) */}
-                    <motion.div
-                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+                    {/* Glow 3 - Central static core (no animation, no blur) */}
+                    <div
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
                         style={{
-                            background: `radial-gradient(circle, oklch(0.48 0.14 150 / ${config.glowOpacity * 0.8}) 0%, transparent 60%)`,
-                            filter: "blur(140px)",
-                        }}
-                        animate={{
-                            scale: [0.8, 1.1, 0.8],
-                            opacity: [0.5, 0.8, 0.5],
-                        }}
-                        transition={{
-                            duration: 25,
-                            repeat: Infinity,
-                            ease: "easeInOut",
+                            background: `radial-gradient(circle, oklch(0.48 0.14 150 / ${
+                                config.glowOpacity * 0.7
+                            }) 0%, transparent 65%)`,
                         }}
                     />
                 </>
