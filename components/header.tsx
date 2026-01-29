@@ -22,20 +22,20 @@ function NavLink({ href, label, isActive }: { href: string; label: string; isAct
       )}
     >
       {label}
-      
+
       {/* Active indicator */}
       {isActive && (
         <motion.div
           layoutId="nav-indicator"
           className="absolute -bottom-1 left-0 right-0 h-[2px] bg-primary"
-          transition={{ 
-            type: "spring", 
-            bounce: 0.2, 
+          transition={{
+            type: "spring",
+            bounce: 0.2,
             duration: shouldReduceMotion ? 0 : 0.5,
           }}
         />
       )}
-      
+
       {/* Hover underline (only for non-active) */}
       {!isActive && (
         <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-primary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -77,14 +77,16 @@ export function Header() {
   const { scrollY } = useScroll()
 
   useEffect(() => {
-    const handleScrollChange = (latest: number) => {
-      // Small threshold to avoid jitter but keep responsive feel
-      setIsScrolled(latest > 24)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24)
     }
 
-    const unsubscribe = scrollY.on("change", handleScrollChange)
-    return () => unsubscribe()
-  }, [scrollY, shouldReduceMotion])
+    // Check immediately on mount
+    handleScroll()
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [shouldReduceMotion])
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -110,120 +112,122 @@ export function Header() {
           className={cn(
             "glass-panel border border-border/30 flex items-center justify-between",
             "transition-[background-color,box-shadow,backdrop-filter] duration-300",
-            isScrolled 
-              ? "bg-background/90 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.55)]" 
-              : "bg-background/70"
+            isScrolled
+              ? "bg-background/80 backdrop-blur-md shadow-lg"
+              : "bg-background/50 backdrop-blur-sm shadow-none border-transparent"
           )}
           animate={{
-            marginTop: isScrolled ? 12 : 16,
-            borderRadius: isScrolled ? "50px" : "8px",
-            padding: isScrolled ? "8px 16px" : "16px 24px",
+            marginTop: isScrolled ? 20 : 0,
+            borderRadius: isScrolled ? "9999px" : "0px",
+            padding: isScrolled ? "12px 24px" : "20px 32px",
+            width: "100%",
           }}
           transition={{
             type: "spring",
-            stiffness: 260,
-            damping: 28,
+            stiffness: 200,
+            damping: 25,
+            mass: 0.8
           }}
         >
-            {/* Logo */}
-            <Link
-              href="/"
-              className={cn(
-                "text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
-              )}
-            >
-              Ateş Altınkaynak
-            </Link>
+          {/* Logo */}
+          <Link
+            href="/"
+            className={cn(
+              "text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+            )}
+          >
+            Ateş Altınkaynak
+          </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.href}
-                  href={item.href}
-                  label={item.label}
-                  isActive={pathname === item.href}
-                />
-              ))}
-            </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                isActive={pathname === item.href}
+              />
+            ))}
+          </nav>
 
-            {/* Right side: Language toggle + CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              {/* Language Toggle with pill animation */}
-              <div className="relative flex items-center gap-1 bg-secondary/50 rounded-full p-1">
-                {/* Animated background pill */}
-                <motion.div
-                  className="absolute top-1 bottom-1 bg-primary rounded-full"
-                  layoutId="lang-toggle"
-                  initial={false}
-                  animate={{
-                    left: locale === "tr" ? 4 : "calc(50% + 2px)",
-                    width: "calc(50% - 6px)",
-                  }}
-                  transition={{ 
-                    type: "spring", 
-                    bounce: 0.2, 
-                    duration: shouldReduceMotion ? 0 : 0.4,
-                  }}
-                />
-                
-                <button
-                  onClick={() => setLocale("tr")}
-                  className={cn(
-                    "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                    locale === "tr" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  TR
-                </button>
-                <button
-                  onClick={() => setLocale("en")}
-                  className={cn(
-                    "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                    locale === "en" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  EN
-                </button>
-              </div>
+          {/* Right side: Language toggle + CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Language Toggle with pill animation */}
+            <div className="relative flex items-center gap-1 bg-secondary/50 rounded-full p-1">
+              {/* Animated background pill */}
+              <motion.div
+                className="absolute top-1 bottom-1 bg-primary rounded-full"
+                layoutId="lang-toggle"
+                initial={false}
+                animate={{
+                  left: locale === "tr" ? 4 : "calc(50% + 2px)",
+                  width: "calc(50% - 6px)",
+                }}
+                transition={{
+                  type: "spring",
+                  bounce: 0.2,
+                  duration: shouldReduceMotion ? 0 : 0.4,
+                }}
+              />
 
-              {/* CTA Button */}
-              <CTAButton href="/start-project" label={t.nav.startProject} />
+              <button
+                onClick={() => setLocale("tr")}
+                className={cn(
+                  "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
+                  locale === "tr" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                TR
+              </button>
+              <button
+                onClick={() => setLocale("en")}
+                className={cn(
+                  "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
+                  locale === "en" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                EN
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
-              aria-label="Toggle menu"
-              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
-            >
-              <AnimatePresence mode="wait">
-                {mobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={24} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={24} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          </motion.div>
+            {/* CTA Button */}
+            <CTAButton href="/start-project" label={t.nav.startProject} />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+            aria-label="Toggle menu"
+            whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+          >
+            <AnimatePresence mode="wait">
+              {mobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
       </motion.div>
 
       {/* Mobile Menu */}
@@ -258,9 +262,9 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
-              
+
               {/* Mobile Language Toggle */}
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-2 py-3"
                 initial={shouldReduceMotion ? {} : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
