@@ -77,8 +77,6 @@ export function Header() {
   const { scrollY } = useScroll()
 
   useEffect(() => {
-    if (shouldReduceMotion) return
-
     const handleScrollChange = (latest: number) => {
       // Small threshold to avoid jitter but keep responsive feel
       setIsScrolled(latest > 24)
@@ -113,7 +111,10 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <motion.div 
-        className="glass-panel border-b border-border/30"
+        className={cn(
+          "glass-panel border-b border-border/30",
+          isScrolled && "border-transparent"
+        )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ 
@@ -125,9 +126,10 @@ export function Header() {
           <motion.div
             className={cn(
               "flex items-center justify-between border border-transparent bg-transparent",
-              "transition-[background-color,box-shadow,backdrop-filter,border-color] duration-300",
-              isScrolled &&
-                "bg-background/85 border-border/60 shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-md"
+              "transition-[background-color,box-shadow,backdrop-filter,border-color,width] duration-300",
+              isScrolled
+                ? "max-w-4xl mx-auto px-4 bg-background/85 border-border/60 shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-md"
+                : "w-full px-0"
             )}
             variants={navShellVariants}
             initial="top"

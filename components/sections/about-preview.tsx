@@ -36,7 +36,6 @@ export function AboutPreviewSection() {
                 </div>
               </motion.div>
               {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-primary/20 rounded-2xl -z-10" />
             </div>
           </AnimatedItem>
 
