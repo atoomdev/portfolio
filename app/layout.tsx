@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Copywriting + Web Tasarım. Net, ikna edici, modern. Web siteleri tasarlıyor ve ikna edici metinler yazıyorum.",
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/favicon.ico",
   },
   keywords: [
     "copywriter",
@@ -52,6 +52,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+import { Header } from "@/components/header"
 import { GlobalAtmosphericBackground } from "@/components/motion/global-atmospheric-background"
 
 export default function RootLayout({
@@ -63,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="font-sans antialiased bg-background text-foreground relative">
         <LanguageProvider>
+          <Header />
           <ScrollToTop />
           <GlobalAtmosphericBackground />
           <div className="relative z-10 transition-colors duration-1000">

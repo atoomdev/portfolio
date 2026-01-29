@@ -4,7 +4,6 @@ import { useState, useRef } from "react"
 import Link from "next/link"
 import { motion, useReducedMotion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 import { Stagger } from "@/components/motion/stagger"
@@ -242,7 +241,7 @@ export default function WorkPage() {
 
   return (
     <>
-      <Header />
+
       <main className="relative pt-32 pb-20">
 
 

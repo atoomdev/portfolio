@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion"
 import { Check, X } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 import { useLanguage } from "@/lib/language-context"
@@ -15,7 +14,7 @@ export default function AboutPage() {
   return (
     <>
 
-      <Header />
+
       <main className="pt-32 pb-20">
         <div className="mx-auto max-w-4xl px-6">
           {/* Header */}

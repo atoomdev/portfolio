@@ -4,7 +4,6 @@ import { use } from "react"
 import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 import { useLanguage } from "@/lib/language-context"
@@ -153,7 +152,7 @@ export default function CaseStudyPage({
   if (!project) {
     return (
       <>
-        <Header />
+
         <main className="pt-32 pb-20 min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-foreground mb-4">
@@ -176,7 +175,7 @@ export default function CaseStudyPage({
   return (
     <>
 
-      <Header />
+
       <main className="pt-32 pb-20">
         <div className="mx-auto max-w-4xl px-6">
           {/* Back link */}

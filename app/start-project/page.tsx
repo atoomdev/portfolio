@@ -3,7 +3,6 @@
 import React, { useState, useRef } from "react"
 import { motion, useReducedMotion, AnimatePresence, useInView } from "framer-motion"
 import { CheckCircle, Loader2, AlertCircle } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedBackgroundLayer } from "@/components/motion/animated-background-layer"
 import { useLanguage } from "@/lib/language-context"
@@ -90,7 +89,7 @@ function SuccessState({ t }: { t: ReturnType<typeof useLanguage>["t"] }) {
 
   return (
     <>
-      <Header />
+
       <main className="relative pt-32 pb-20 min-h-screen flex items-center">
         {/* Animated background for header */}
         <div className="absolute inset-x-0 top-0 h-[400px] overflow-hidden">
@@ -239,7 +238,7 @@ export default function StartProjectPage() {
 
   return (
     <>
-      <Header />
+
       <main className="relative pt-32 pb-20">
         {/* Animated background for header */}
         <div className="absolute inset-x-0 top-0 h-[400px] overflow-hidden">

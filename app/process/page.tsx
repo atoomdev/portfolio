@@ -4,7 +4,6 @@ import Link from "next/link"
 import { motion, useReducedMotion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { ArrowRight, MessageSquare, FileText, Palette, Package, AlertCircle, CheckCircle } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 import { useLanguage } from "@/lib/language-context"
@@ -21,7 +20,7 @@ export default function ProcessPage() {
   return (
     <>
 
-      <Header />
+
       <main className="pt-32 pb-20">
         <div className="mx-auto max-w-4xl px-6">
           {/* Header */}

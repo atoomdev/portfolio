@@ -1,6 +1,5 @@
 "use client"
 
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/hero"
 import { AboutPreviewSection } from "@/components/sections/about-preview"
@@ -15,7 +14,7 @@ import { AtmosphericSection } from "@/components/motion/atmospheric-section"
 export default function HomePage() {
   return (
     <>
-      <Header />
+
       <main className="flex flex-col gap-0">
         <AtmosphericSection>
           <HeroSection />
