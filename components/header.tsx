@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion, useScroll } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { cn } from "@/lib/utils"
@@ -73,6 +73,35 @@ export function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const shouldReduceMotion = useReducedMotion()
+  const [isScrolled, setIsScrolled] = useState(false)
+  const { scrollY } = useScroll()
+
+  useEffect(() => {
+    if (shouldReduceMotion) return
+
+    const handleScrollChange = (latest: number) => {
+      // Small threshold to avoid jitter but keep responsive feel
+      setIsScrolled(latest > 24)
+    }
+
+    const unsubscribe = scrollY.on("change", handleScrollChange)
+    return () => unsubscribe()
+  }, [scrollY, shouldReduceMotion])
+
+  const navShellVariants = {
+    top: {
+      borderRadius: 0,
+      paddingTop: 14,
+      paddingBottom: 14,
+      y: 0,
+    },
+    scrolled: {
+      borderRadius: 999,
+      paddingTop: 8,
+      paddingBottom: 8,
+      y: 8,
+    },
+  } as const
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -93,7 +122,21 @@ export function Header() {
         }}
       >
         <div className="mx-auto max-w-6xl px-6 py-4">
-          <div className="flex items-center justify-between">
+          <motion.div
+            className={cn(
+              "flex items-center justify-between border border-transparent bg-transparent",
+              "transition-[background-color,box-shadow,backdrop-filter,border-color] duration-300",
+              isScrolled &&
+                "bg-background/85 border-border/60 shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-md"
+            )}
+            variants={navShellVariants}
+            initial="top"
+            animate={isScrolled ? "scrolled" : "top"}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.25,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             {/* Logo */}
             <Link
               href="/"
@@ -192,7 +235,7 @@ export function Header() {
                 )}
               </AnimatePresence>
             </motion.button>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
 
