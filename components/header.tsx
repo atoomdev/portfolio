@@ -117,7 +117,7 @@ export function Header() {
               : "bg-background/50 backdrop-blur-sm shadow-none border-transparent"
           )}
           animate={{
-            marginTop: isScrolled ? 20 : 0,
+            marginTop: isScrolled ? 12 : 0,
             borderRadius: isScrolled ? "9999px" : "0px",
             padding: isScrolled ? "12px 24px" : "20px 32px",
             width: "100%",
