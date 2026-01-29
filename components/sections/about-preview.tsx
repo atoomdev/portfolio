@@ -18,16 +18,16 @@ export function AboutPreviewSection() {
           <AnimatedItem>
             <div className="relative">
               <motion.div
-                className="aspect-square max-w-md mx-auto md:mx-0 bg-card rounded-2xl border border-border/50 overflow-hidden"
+                className="max-w-md mx-auto md:mx-0 bg-card rounded-2xl border border-border/50 overflow-hidden"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Image
                   src="/ates.jpeg"
                   alt="Portrait of Ateş Altınkaynak"
-                  fill
-                  sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 80vw"
-                  className="object-cover"
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto object-contain"
                   priority
                 />
                 {/* Signature-like detail */}

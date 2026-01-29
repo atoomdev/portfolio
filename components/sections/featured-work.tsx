@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, useReducedMotion, useInView } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
@@ -24,11 +25,11 @@ const projects = [
   },
   {
     id: "deniz-yilmaz",
-    type: "personalBrand",
-    titleTr: "Deniz Yılmaz Portfolio",
-    titleEn: "Deniz Yılmaz Portfolio",
-    goalTr: "Serbest fotoğrafçı için kişisel marka sitesi",
-    goalEn: "Personal brand site for freelance photographer",
+    type: "website",
+    titleTr: "Barle Pub & Kitchen",
+    titleEn: "Barle Pub & Kitchen",
+    goalTr: "Bar & Kitchen için çok sayfalı kurumsal site",
+    goalEn: "Multi-page corporate site for bar & kitchen",
     deliverablesTr: "Metin + Tasarım + Geliştirme",
     deliverablesEn: "Copy + Design + Development",
     featured: true,
@@ -102,35 +103,39 @@ function FeaturedProjectCard({ project, locale, t }: {
         <CursorSpotlight position={position} isVisible={isVisible} size={350} />
 
         <div className="grid md:grid-cols-2 gap-0 relative z-10">
-          {/* Image placeholder with parallax */}
-          <div className="aspect-[4/3] md:aspect-auto md:min-h-[400px] bg-secondary/30 relative overflow-hidden">
-            <motion.div 
-              className="absolute inset-0 flex items-center justify-center"
+          {/* Project image */}
+          <div className="md:min-h-[400px] bg-secondary/30 relative overflow-hidden">
+            <motion.div
+              className="relative w-full h-full"
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <div className="w-24 h-24 rounded-xl bg-primary/10 flex items-center justify-center">
-                <span className="font-serif text-3xl text-primary/60">
-                  {project.titleTr.charAt(0)}
-                </span>
-              </div>
-            </motion.div>
-            
-            {/* Hover gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* Shine sweep effect on hover */}
-            {!shouldReduceMotion && (
-              <motion.div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: "linear-gradient(90deg, transparent 0%, oklch(1 0 0 / 0.05) 50%, transparent 100%)",
-                }}
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+              <Image
+                src="/barle.png"
+                alt={locale === "tr" ? project.titleTr : project.titleEn}
+                width={960}
+                height={640}
+                className="w-full h-full object-cover"
+                priority
               />
-            )}
+
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Shine sweep effect on hover */}
+              {!shouldReduceMotion && (
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent 0%, oklch(1 0 0 / 0.05) 50%, transparent 100%)",
+                  }}
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                />
+              )}
+            </motion.div>
           </div>
 
           {/* Content with slide animation on hover */}
