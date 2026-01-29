@@ -86,21 +86,6 @@ export function Header() {
     return () => unsubscribe()
   }, [scrollY, shouldReduceMotion])
 
-  const navShellVariants = {
-    top: {
-      borderRadius: 0,
-      paddingTop: 14,
-      paddingBottom: 14,
-      y: 0,
-    },
-    scrolled: {
-      borderRadius: 999,
-      paddingTop: 8,
-      paddingBottom: 8,
-      y: 8,
-    },
-  } as const
-
   const navItems = [
     { href: "/", label: t.nav.home },
     { href: "/work", label: t.nav.work },
@@ -110,35 +95,30 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <motion.div 
-        className={cn(
-          "glass-panel border-b border-border/30",
-          isScrolled && "border-transparent"
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ 
-          duration: shouldReduceMotion ? 0 : 0.5, 
-          ease: [0.25, 0.46, 0.45, 0.94],
+      <motion.div
+        className="mx-auto max-w-6xl px-4"
+        layout
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 28,
         }}
       >
-        <div className="mx-auto max-w-6xl px-6 py-4">
-          <motion.div
-            className={cn(
-              "flex items-center justify-between border border-transparent bg-transparent",
-              "transition-[background-color,box-shadow,backdrop-filter,border-color,width] duration-300",
-              isScrolled
-                ? "max-w-4xl mx-auto px-4 bg-background/85 border-border/60 shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-md"
-                : "w-full px-0"
-            )}
-            variants={navShellVariants}
-            initial="top"
-            animate={isScrolled ? "scrolled" : "top"}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.25,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
+        <motion.div
+          layout
+          className={cn(
+            "glass-panel border border-border/30 flex items-center justify-between",
+            "transition-[background-color,box-shadow,backdrop-filter] duration-300",
+            isScrolled ? "mt-3 rounded-full py-2 px-4 bg-background/90 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.55)]" : "mt-4 rounded-lg py-4 px-6 bg-background/70"
+          )}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 28,
+          }}
+        >
             {/* Logo */}
             <Link
               href="/"
