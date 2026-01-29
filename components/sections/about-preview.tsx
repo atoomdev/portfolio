@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
@@ -21,11 +22,14 @@ export function AboutPreviewSection() {
                 whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="font-serif text-5xl text-primary font-bold">A</span>
-                  </div>
-                </div>
+                <Image
+                  src="/ates.jpeg"
+                  alt="Portrait of Ateş Altınkaynak"
+                  fill
+                  sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 80vw"
+                  className="object-cover"
+                  priority
+                />
                 {/* Signature-like detail */}
                 <div className="absolute bottom-6 right-6 text-primary/60 font-serif italic text-lg">
                   Ateş
