@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion, AnimatePresence, useReducedMotion, useScroll } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { cn } from "@/lib/utils"
@@ -68,6 +68,8 @@ function CTAButton({ href, label }: { href: string; label: string }) {
   )
 }
 
+const MORPH_SPRING = { type: "spring" as const, stiffness: 260, damping: 30, mass: 1 }
+
 export function Header() {
   const { locale, setLocale, t } = useLanguage()
   const pathname = usePathname()
@@ -75,7 +77,7 @@ export function Header() {
   const shouldReduceMotion = useReducedMotion()
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // Single scroll listener source
+  // Single scroll source: one passive window listener
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24)
@@ -114,135 +116,127 @@ export function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full pointer-events-none">
+      {/* Single inner motion node: morphs between full-width bar and centered pill */}
       <motion.div
-        className="w-full flex justify-center pointer-events-auto"
+        className={cn(
+          "mx-auto w-full pointer-events-auto flex items-center justify-between border-border/30",
+          "glass-panel",
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md shadow-lg border"
+            : "bg-background/60 backdrop-blur-md shadow-none border-b"
+        )}
         initial={false}
+        animate={{
+          maxWidth: isScrolled ? "72rem" : "100%",
+          borderRadius: isScrolled ? "999px" : "0px",
+          marginTop: isScrolled ? "12px" : "0px",
+          padding: isScrolled ? "10px 24px" : "16px 48px",
+        }}
+        transition={MORPH_SPRING}
       >
-        <motion.div
+        {/* Logo */}
+        <Link
+          href="/"
           className={cn(
-            "glass-panel flex items-center justify-between border-border/30",
-            "transition-[background-color,box-shadow,backdrop-filter] duration-500",
-            isScrolled
-              ? "bg-background/80 backdrop-blur-md shadow-lg border"
-              : "bg-background/60 backdrop-blur-md shadow-none border-b"
+            "text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
           )}
-          animate={{
-            width: isScrolled ? "min(100% - 24px, 72rem)" : "100%",
-            marginTop: isScrolled ? 12 : 0,
-            borderRadius: isScrolled ? "9999px" : "0px",
-            padding: isScrolled ? "10px 24px" : "16px 48px",
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 30,
-            mass: 1
-          }}
         >
-          {/* Logo */}
-          <Link
-            href="/"
-            className={cn(
-              "text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
-            )}
-          >
-            Ateş Altınkaynak
-          </Link>
+          Ateş Altınkaynak
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.href}
-                href={item.href}
-                label={item.label}
-                isActive={pathname === item.href}
-              />
-            ))}
-          </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              isActive={pathname === item.href}
+            />
+          ))}
+        </nav>
 
-          {/* Right side: Language toggle + CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Language Toggle with pill animation */}
-            <div className="relative flex items-center gap-1 bg-secondary/50 rounded-full p-1">
-              {/* Animated background pill */}
-              <motion.div
-                className="absolute top-1 bottom-1 bg-primary rounded-full"
-                layoutId="lang-toggle"
-                initial={false}
-                animate={{
-                  left: locale === "tr" ? 4 : "calc(50% + 2px)",
-                  width: "calc(50% - 6px)",
-                }}
-                transition={{
-                  type: "spring",
-                  bounce: 0.2,
-                  duration: shouldReduceMotion ? 0 : 0.4,
-                }}
-              />
+        {/* Right side: Language toggle + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          {/* Language Toggle with pill animation */}
+          <div className="relative flex items-center gap-1 bg-secondary/50 rounded-full p-1">
+            {/* Animated background pill */}
+            <motion.div
+              className="absolute top-1 bottom-1 bg-primary rounded-full"
+              layoutId="lang-toggle"
+              initial={false}
+              animate={{
+                left: locale === "tr" ? 4 : "calc(50% + 2px)",
+                width: "calc(50% - 6px)",
+              }}
+              transition={{
+                type: "spring",
+                bounce: 0.2,
+                duration: shouldReduceMotion ? 0 : 0.4,
+              }}
+            />
 
-              <button
-                onClick={() => setLocale("tr")}
-                className={cn(
-                  "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                  locale === "tr" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                TR
-              </button>
-              <button
-                onClick={() => setLocale("en")}
-                className={cn(
-                  "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                  locale === "en" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                EN
-              </button>
-            </div>
-
-            {/* CTA Button */}
-            <CTAButton href="/start-project" label={t.nav.startProject} />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded z-[110]"
-              aria-label="Toggle menu"
+              onClick={() => setLocale("tr")}
+              className={cn(
+                "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
+                locale === "tr" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              )}
             >
-              <AnimatePresence mode="wait">
-                {mobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={24} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={24} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              TR
+            </button>
+            <button
+              onClick={() => setLocale("en")}
+              className={cn(
+                "relative z-10 px-3 py-1 text-xs font-medium rounded-full transition-colors",
+                locale === "en" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              EN
             </button>
           </div>
-        </motion.div>
+
+          {/* CTA Button */}
+          <CTAButton href="/start-project" label={t.nav.startProject} />
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded relative z-[70]"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              {mobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </motion.div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile: full-screen overlay, fixed inset-0, z above header; body scroll locked; close on link + ESC */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -250,11 +244,13 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl md:hidden overflow-hidden pointer-events-auto"
+            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl md:hidden pointer-events-auto"
+            style={{ touchAction: "none" }}
             onClick={() => setMobileMenuOpen(false)}
+            aria-hidden={!mobileMenuOpen}
           >
             <nav
-              className="flex flex-col items-center justify-center min-h-[100dvh] px-6 py-20 space-y-6 pt-[calc(5rem+env(safe-area-inset-top))]"
+              className="flex flex-col items-center justify-center min-h-[100dvh] px-6 py-20 pt-[calc(5rem+env(safe-area-inset-top))] space-y-6"
               onClick={(e) => e.stopPropagation()}
             >
               {navItems.map((item, index) => (
