@@ -47,7 +47,7 @@ export function CtaGlow({ className, noiseOpacity = 0.08 }: CtaGlowProps) {
           background: GLOW_GRADIENT,
           willChange: shouldAnimate ? "transform, opacity" : "auto",
         }}
-        initial={false}
+        initial={false} 
         animate={
           shouldAnimate
             ? {
