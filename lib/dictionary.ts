@@ -291,9 +291,9 @@ export const dictionary = {
       startProject: "Start a Project",
     },
     hero: {
-      headline: "Web Design & AI Development. Clear, persuasive and dynamic.",
+      headline: "Web Design & AI Development",
       subheadline:
-        "I design websites and develop AI content.",
+        "I design websites and develop AI content.  Clear, persuasive and dynamic.",
       primaryCta: "Start a Project",
       secondaryCta: "See My Work",
       statusLine: "Currently able to accept a limited number of projects.",
