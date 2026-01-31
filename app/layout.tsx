@@ -9,6 +9,8 @@ import "./globals.css"
 const _inter = Inter({ subsets: ["latin", "latin-ext"] })
 const _playfair = Playfair_Display({ subsets: ["latin", "latin-ext"] })
 
+
+
 export const metadata: Metadata = {
   title: "Ateş Altınkaynak | Web Designer & AI Developer",
   description:
