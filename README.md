@@ -1,4 +1,4 @@
-# Portfolio Website - at00m.xyz
+# Portfolio Website
 
 Welcome to the repository for my portfolio website! This project showcases my skills, services, and featured work as a web designer and developer.
 
